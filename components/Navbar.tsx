@@ -10,10 +10,10 @@ import AiStatusButton from "./ai/AiStatusButton";
 const links = [
   { href: "/learn", label: "Học" },
   { href: "/concepts", label: "Khái niệm" },
-  { href: "/timeline", label: "Timeline" },
+  { href: "/#timeline", label: "Timeline" },
   { href: "/quiz", label: "Quiz" },
   { href: "/flashcards", label: "Flashcards" },
-  { href: "/about", label: "Giới thiệu" },
+  { href: "/#ve-du-an", label: "Giới thiệu" },
 ];
 
 export default function Navbar() {

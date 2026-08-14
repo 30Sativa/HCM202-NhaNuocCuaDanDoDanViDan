@@ -6,6 +6,7 @@ import ConceptMap from "@/components/ConceptMap";
 import PowerFlow from "@/components/PowerFlow";
 import Reveal from "@/components/Reveal";
 import TeamCarousel from "@/components/TeamCarousel";
+import Timeline from "@/components/Timeline";
 import { modules } from "@/data/modules";
 import { coreChain } from "@/data/knowledge";
 
@@ -127,6 +128,23 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Timeline */}
+      <section id="timeline" className="mx-auto max-w-content scroll-mt-24 px-5 py-20 md:px-8 md:py-28">
+        <Reveal>
+          <span className="kicker">Nhà nước hợp hiến, hợp pháp</span>
+          <h2 className="mt-4 font-serif text-4xl font-bold text-ink md:text-5xl">
+            Timeline lịch sử
+          </h2>
+          <p className="mt-4 max-w-2xl text-ink-soft">
+            Những mốc son cho thấy nỗ lực xây dựng một Nhà nước có cơ sở pháp lý
+            và chính danh. Nhấn vào từng mốc để xem chi tiết.
+          </p>
+        </Reveal>
+        <div className="mt-12">
+          <Timeline />
+        </div>
+      </section>
+
       {/* Logic cốt lõi */}
       <section className="bg-paper-2/30 py-20 md:py-28">
         <div className="mx-auto max-w-content px-5 md:px-8">
@@ -177,8 +195,49 @@ export default function HomePage() {
         </Reveal>
       </section>
 
+      {/* Về dự án */}
+      <section id="ve-du-an" className="bg-paper-2/30 scroll-mt-24 py-20 md:py-28">
+        <div className="mx-auto max-w-content px-5 md:px-8">
+          <div className="grid gap-10 md:grid-cols-2">
+            <Reveal>
+              <span className="kicker">Về dự án</span>
+              <h2 className="mt-4 font-serif text-3xl font-bold text-ink md:text-4xl">
+                Nguồn nội dung
+              </h2>
+              <p className="mt-4 leading-relaxed text-ink-soft">
+                Nội dung được tổng hợp từ giáo trình Tư tưởng Hồ Chí Minh và các
+                Session 13–17: Nhà nước của dân – do dân – vì dân (Session 15),
+                Nhà nước pháp quyền, kiểm soát quyền lực và phòng chống tiêu cực
+                (Session 16), cùng phần vận dụng vào xây dựng Nhà nước hiện nay.
+              </p>
+              <p className="mt-4 font-mono text-sm italic text-primary">
+                “Đừng đọc lý thuyết. Hãy trải nghiệm nó.”
+              </p>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <span className="kicker">Công nghệ</span>
+              <h2 className="mt-4 font-serif text-3xl font-bold text-ink md:text-4xl">
+                Frontend hiện đại
+              </h2>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Lucide", "DânBot AI"].map(
+                  (t) => (
+                    <span
+                      key={t}
+                      className="rounded-full border border-ink/15 bg-paper px-4 py-1.5 font-mono text-xs uppercase tracking-wider text-ink-soft"
+                    >
+                      {t}
+                    </span>
+                  )
+                )}
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="mx-auto max-w-content px-5 pb-8 md:px-8">
+      <section className="mx-auto max-w-content px-5 pb-8 pt-20 md:px-8 md:pt-28">
         <div className="overflow-hidden rounded-3xl bg-primary px-8 py-16 text-center text-paper md:py-20">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-gold-light">
             Sẵn sàng kiểm tra?

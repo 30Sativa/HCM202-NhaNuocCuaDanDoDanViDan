@@ -36,11 +36,11 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-x-10 gap-y-2">
             <Link href="/learn" className="font-mono text-xs uppercase tracking-wider text-ink-soft hover:text-primary">Học</Link>
             <Link href="/concepts" className="font-mono text-xs uppercase tracking-wider text-ink-soft hover:text-primary">Khái niệm</Link>
-            <Link href="/timeline" className="font-mono text-xs uppercase tracking-wider text-ink-soft hover:text-primary">Timeline</Link>
+            <Link href="/#timeline" className="font-mono text-xs uppercase tracking-wider text-ink-soft hover:text-primary">Timeline</Link>
             <Link href="/quiz" className="font-mono text-xs uppercase tracking-wider text-ink-soft hover:text-primary">Quiz</Link>
             <Link href="/flashcards" className="font-mono text-xs uppercase tracking-wider text-ink-soft hover:text-primary">Flashcards</Link>
             <Link href="/settings/ai" className="font-mono text-xs uppercase tracking-wider text-ink-soft hover:text-primary">DânBot AI</Link>
-            <Link href="/about" className="font-mono text-xs uppercase tracking-wider text-ink-soft hover:text-primary">Giới thiệu</Link>
+            <Link href="/#ve-du-an" className="font-mono text-xs uppercase tracking-wider text-ink-soft hover:text-primary">Giới thiệu</Link>
           </div>
         </div>
 
