@@ -8,40 +8,22 @@ import { useAI } from "./ai/AIProvider";
 
 export default function InteractiveMindMap() {
   return (
-    <div className="rounded-2xl border border-ink/10 bg-paper-2/40 p-4 sm:p-8">
-      {/* Gốc */}
-      <div className="rounded-xl bg-ink px-5 py-3.5 text-paper shadow-md">
-        <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-gold-light">
-          Sơ đồ tư duy
-        </span>
-        <p className="font-serif text-xl font-bold leading-tight">
-          {mindTree.label}
-        </p>
+    <div className="rounded-2xl border border-ink/10 bg-paper-2/40 p-3 sm:p-5">
+      <div className="overflow-x-auto pb-3">
+        <div className="min-w-max py-2">
+          <Node node={mindTree} depth={0} tone="primary" inherited="" defaultOpen />
+        </div>
       </div>
-
-      {/* Nhánh cấp 1 trở đi (đệ quy) */}
-      <div className="ml-2 mt-2 space-y-2 border-l border-dashed border-ink/20 pl-3 sm:ml-4 sm:pl-5">
-        {mindTree.children!.map((child, i) => (
-          <Item
-            key={child.id}
-            node={child}
-            depth={1}
-            tone={child.tone ?? "primary"}
-            inherited=""
-            defaultOpen={i === 0}
-          />
-        ))}
-      </div>
-
-      <p className="mt-5 flex flex-wrap items-center gap-1.5 font-mono text-[0.7rem] uppercase tracking-wider text-ink-soft">
-        <ChevronRight size={12} /> Nhấn để mở nhánh, mở tiếp nhánh con ·{" "}
-        <Sparkles size={12} className="text-primary" /> hỏi AI riêng từng mục
+      <p className="mt-1 flex flex-wrap items-center gap-1.5 px-1 font-mono text-[0.7rem] uppercase tracking-wider text-ink-soft">
+        <ChevronRight size={12} /> Nhấn để mở nhánh sang phải ·{" "}
+        <Sparkles size={12} className="text-primary" /> hỏi AI riêng từng mục ·
+        có thể kéo ngang
       </p>
     </div>
   );
 }
 
-function Item({
+function Node({
   node,
   depth,
   tone,
@@ -59,22 +41,11 @@ function Item({
 
   const hasChildren = !!node.children?.length;
   const effTone = node.tone ?? tone;
-  const dot = effTone === "gold" ? "bg-gold-dark" : "bg-primary";
   const context = node.aiContext || inherited;
-  const canAsk = hasChildren || !!node.aiContext;
+  const canAsk = depth > 0 && (hasChildren || !!node.aiContext);
 
-  const titleColor =
-    depth === 1
-      ? effTone === "gold"
-        ? "text-gold-dark"
-        : "text-primary"
-      : "text-ink";
-  const titleClass =
-    depth === 1
-      ? "font-serif text-lg font-bold"
-      : depth === 2
-        ? "text-sm font-semibold"
-        : "text-sm";
+  const dot = effTone === "gold" ? "bg-gold-dark" : "bg-primary";
+  const line = effTone === "gold" ? "border-gold-dark/30" : "border-primary/25";
 
   function ask() {
     const content = node.aiContext
@@ -83,67 +54,86 @@ function Item({
     askAbout(node.label, content);
   }
 
+  // Kiểu nút theo cấp
+  const pill =
+    depth === 0
+      ? "bg-ink text-paper shadow-md"
+      : depth === 1
+        ? `border-2 bg-paper ${
+            effTone === "gold" ? "border-gold-dark/50" : "border-primary/50"
+          } ${open ? "" : "hover:shadow-sm"}`
+        : "border border-ink/12 bg-paper hover:border-primary/30";
+
+  const labelClass =
+    depth === 0
+      ? "font-serif text-lg font-bold leading-tight"
+      : depth === 1
+        ? `font-serif text-base font-bold ${
+            effTone === "gold" ? "text-gold-dark" : "text-primary"
+          }`
+        : depth === 2
+          ? "text-sm font-semibold text-ink"
+          : "text-sm text-ink-soft";
+
   return (
-    <div>
+    <div className="flex items-center">
+      {/* Nút của node */}
       <div
-        className={`flex items-center gap-2 rounded-xl border p-2 transition-colors ${
-          open && hasChildren
-            ? "border-primary/30 bg-primary/[0.05]"
-            : "border-ink/10 bg-paper hover:border-primary/30"
-        }`}
+        className={`flex flex-none items-center gap-2 rounded-xl px-3.5 py-2.5 transition-colors ${pill}`}
       >
         <button
           onClick={() => hasChildren && setOpen((v) => !v)}
-          className={`flex flex-1 items-center gap-2 text-left ${
+          className={`flex items-center gap-2 text-left ${
             hasChildren ? "" : "cursor-default"
           }`}
           aria-expanded={hasChildren ? open : undefined}
         >
-          {hasChildren ? (
+          {hasChildren && depth > 0 && (
             <ChevronRight
-              size={17}
-              className={`flex-none text-ink-soft transition-transform ${
-                open ? "rotate-90 text-primary" : ""
-              }`}
+              size={16}
+              className={`flex-none transition-transform ${
+                open ? "rotate-90" : ""
+              } ${effTone === "gold" ? "text-gold-dark" : "text-primary"}`}
             />
-          ) : (
-            <span className="w-[17px] flex-none" />
           )}
-          <span className={`h-2 w-2 flex-none rounded-full ${dot}`} />
-          <span className={`min-w-0 ${titleClass} ${titleColor}`}>
-            {node.label}
-          </span>
+          {depth > 0 && (
+            <span className={`h-2 w-2 flex-none rounded-full ${dot}`} />
+          )}
+          <span className={`max-w-[15rem] ${labelClass}`}>{node.label}</span>
         </button>
 
         {canAsk && (
           <button
             onClick={ask}
             title={`Hỏi DânBot về "${node.label}"`}
-            className="flex flex-none items-center gap-1.5 rounded-full bg-primary px-2.5 py-1.5 font-mono text-[0.6rem] uppercase tracking-wider text-paper transition-all hover:bg-primary-dark"
+            className="flex flex-none items-center justify-center rounded-full bg-primary p-1.5 text-paper transition-colors hover:bg-primary-dark"
           >
-            <Sparkles size={12} />
-            <span className="hidden sm:inline">Hỏi AI</span>
+            <Sparkles size={13} />
           </button>
         )}
       </div>
 
+      {/* Nhánh con — tỏa sang phải */}
       {hasChildren && open && (
-        <motion.div
-          initial={{ opacity: 0, y: -4 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.25 }}
-          className="ml-4 mt-1.5 space-y-1.5 border-l border-dashed border-ink/20 pl-3 sm:ml-6 sm:pl-5"
-        >
-          {node.children!.map((c) => (
-            <Item
-              key={c.id}
-              node={c}
-              depth={depth + 1}
-              tone={effTone}
-              inherited={context}
-            />
-          ))}
-        </motion.div>
+        <div className="flex items-center">
+          <span className={`h-px w-6 flex-none border-t border-dashed ${line}`} />
+          <motion.div
+            initial={{ opacity: 0, x: -6 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.25 }}
+            className={`flex flex-col gap-3 border-l border-dashed py-1 pl-6 ${line}`}
+          >
+            {node.children!.map((c) => (
+              <Node
+                key={c.id}
+                node={c}
+                depth={depth + 1}
+                tone={effTone}
+                inherited={context}
+              />
+            ))}
+          </motion.div>
+        </div>
       )}
     </div>
   );
