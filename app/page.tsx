@@ -5,7 +5,6 @@ import ConceptCards from "@/components/ConceptCards";
 import ConceptMap from "@/components/ConceptMap";
 import PowerFlow from "@/components/PowerFlow";
 import KnowledgeGraph from "@/components/KnowledgeGraph";
-import MindMap from "@/components/MindMap";
 import Reveal from "@/components/Reveal";
 import TeamCarousel from "@/components/TeamCarousel";
 import Timeline from "@/components/Timeline";
@@ -100,27 +99,6 @@ export default function HomePage() {
             <KnowledgeGraph />
           </div>
         </Reveal>
-      </section>
-
-      {/* Mindmap */}
-      <section className="bg-paper-2/30 py-20 md:py-28">
-        <div className="mx-auto max-w-content px-5 md:px-8">
-          <Reveal>
-            <span className="kicker">Sơ đồ tư duy</span>
-            <h2 className="mt-3 font-serif text-4xl font-bold text-ink md:text-5xl">
-              Mindmap học phần
-            </h2>
-            <p className="mt-4 max-w-2xl text-ink-soft">
-              Toàn bộ nội dung tỏa ra từ một gốc: Nhà nước của dân, do dân, vì
-              dân — cùng các nhánh pháp quyền, kiểm soát quyền lực và vận dụng.
-            </p>
-          </Reveal>
-          <Reveal>
-            <div className="mt-10">
-              <MindMap />
-            </div>
-          </Reveal>
-        </div>
       </section>
 
       {/* Modules preview */}

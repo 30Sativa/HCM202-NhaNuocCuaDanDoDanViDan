@@ -13,7 +13,7 @@ import {
 import { useAI } from "./AIProvider";
 import ConnectForm from "./ConnectForm";
 import { streamChat, complete, type ChatMessage } from "@/lib/ai";
-import { buildSystemPrompt } from "@/data/knowledge";
+import { buildSystemPrompt, buildScopedPrompt } from "@/data/knowledge";
 
 type Mode = "chat" | "grade";
 
@@ -37,7 +37,7 @@ function rich(text: string) {
 }
 
 export default function DanBot() {
-  const { apiKey, ready, topic, open, setOpen } = useAI();
+  const { apiKey, ready, topic, open, setOpen, scoped, setScoped } = useAI();
   const [mode, setMode] = useState<Mode>("chat");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
@@ -50,19 +50,36 @@ export default function DanBot() {
   const abortRef = useRef<AbortController | null>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
-  const suggestions = topic
+  const suggestions = scoped
     ? [
-        `Giải thích phần "${topic}"`,
-        `Cho ví dụ dễ hiểu`,
-        `Kiểm tra mình 3 câu`,
-        `Dạy mình kiểu hỏi–đáp`,
+        `Giải thích mục này`,
+        `Cho một ví dụ dễ hiểu`,
+        `Tóm tắt ý chính`,
+        `Kiểm tra mình về mục này`,
       ]
-    : [
-        `"Của dân" nghĩa là gì?`,
-        `Phân biệt của dân và do dân`,
-        `Vì sao phải kiểm soát quyền lực?`,
-        `Tạo cho mình 3 câu quiz`,
-      ];
+    : topic
+      ? [
+          `Giải thích phần "${topic}"`,
+          `Cho ví dụ dễ hiểu`,
+          `Kiểm tra mình 3 câu`,
+          `Dạy mình kiểu hỏi–đáp`,
+        ]
+      : [
+          `"Của dân" nghĩa là gì?`,
+          `Phân biệt của dân và do dân`,
+          `Vì sao phải kiểm soát quyền lực?`,
+          `Tạo cho mình 3 câu quiz`,
+        ];
+
+  // Khi chọn hỏi về 1 mục mới trên sơ đồ tư duy → làm mới cuộc trò chuyện.
+  useEffect(() => {
+    if (scoped) {
+      abortRef.current?.abort();
+      setMessages([]);
+      setBusy(false);
+      setMode("chat");
+    }
+  }, [scoped]);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
@@ -84,7 +101,9 @@ export default function DanBot() {
       try {
         await streamChat(
           apiKey,
-          buildSystemPrompt(topic ?? undefined),
+          scoped
+            ? buildScopedPrompt(scoped.title, scoped.content)
+            : buildSystemPrompt(topic ?? undefined),
           history,
           (delta) => {
             setMessages((prev) => {
@@ -111,7 +130,7 @@ export default function DanBot() {
         setBusy(false);
       }
     },
-    [apiKey, busy, messages, topic]
+    [apiKey, busy, messages, topic, scoped]
   );
 
   async function gradeEssay() {
@@ -234,13 +253,33 @@ Nhận xét khách quan, mang tính xây dựng, khích lệ.`;
               {mode === "chat" ? (
                 <>
                   {/* Ngữ cảnh */}
-                  {topic && (
-                    <div className="border-b border-ink/10 bg-paper-2/40 px-4 py-2">
-                      <span className="font-mono text-[0.65rem] uppercase tracking-wider text-ink-soft">
-                        Đang học
-                      </span>
-                      <p className="text-sm font-semibold text-primary">{topic}</p>
+                  {scoped ? (
+                    <div className="flex items-start justify-between gap-2 border-b border-primary/20 bg-primary/[0.06] px-4 py-2">
+                      <div>
+                        <span className="font-mono text-[0.65rem] uppercase tracking-wider text-gold-dark">
+                          Đang hỏi riêng về mục
+                        </span>
+                        <p className="text-sm font-semibold text-primary">
+                          {scoped.title}
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => setScoped(null)}
+                        className="mt-0.5 flex-none rounded-full px-2 py-1 font-mono text-[0.6rem] uppercase tracking-wider text-ink-soft hover:text-primary"
+                        title="Bỏ giới hạn mục"
+                      >
+                        Hỏi tất cả
+                      </button>
                     </div>
+                  ) : (
+                    topic && (
+                      <div className="border-b border-ink/10 bg-paper-2/40 px-4 py-2">
+                        <span className="font-mono text-[0.65rem] uppercase tracking-wider text-ink-soft">
+                          Đang học
+                        </span>
+                        <p className="text-sm font-semibold text-primary">{topic}</p>
+                      </div>
+                    )
                   )}
 
                   {/* Nội dung chat */}
@@ -249,8 +288,9 @@ Nhận xét khách quan, mang tính xây dựng, khích lệ.`;
                       <div className="text-sm text-ink-soft">
                         <p className="font-medium text-ink">👋 Chào bạn!</p>
                         <p className="mt-1">
-                          Mình có thể giúp bạn hiểu bài, cho ví dụ, kiểm tra kiến
-                          thức. Thử hỏi mình:
+                          {scoped
+                            ? `Mình sẽ trả lời trong phạm vi mục “${scoped.title}”. Thử hỏi:`
+                            : "Mình có thể giúp bạn hiểu bài, cho ví dụ, kiểm tra kiến thức. Thử hỏi mình:"}
                         </p>
                       </div>
                     )}

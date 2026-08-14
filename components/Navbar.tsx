@@ -10,6 +10,7 @@ import AiStatusButton from "./ai/AiStatusButton";
 const links = [
   { href: "/learn", label: "Học" },
   { href: "/#khai-niem", label: "Khái niệm" },
+  { href: "/mindmap", label: "Mindmap" },
   { href: "/#timeline", label: "Timeline" },
   { href: "/quiz", label: "Quiz" },
   { href: "/flashcards", label: "Flashcards" },

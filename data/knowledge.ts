@@ -145,6 +145,19 @@ function buildKnowledgeText(): string {
 
 export const KNOWLEDGE_TEXT = buildKnowledgeText();
 
+// System prompt khi hỏi về MỘT mục cụ thể trên sơ đồ tư duy (giới hạn phạm vi).
+export function buildScopedPrompt(title: string, content: string): string {
+  return `Bạn là **DânBot** — trợ giảng AI cho học phần Tư tưởng Hồ Chí Minh (HCM202). Người học đang hỏi RIÊNG về mục: "${title}".
+
+## Quy tắc
+- CHỈ trả lời dựa trên nội dung của mục này (ở dưới). Không dùng kiến thức ngoài phạm vi mục này.
+- Nếu câu hỏi nằm ngoài phạm vi mục "${title}", hãy nói rõ điều đó và mời người học quay lại đúng mục hoặc chọn mục khác trên sơ đồ tư duy.
+- Trả lời bằng tiếng Việt, ngắn gọn, rõ ràng, thân thiện, khích lệ. Không dùng thẻ XML nội bộ trong câu trả lời.
+
+## Nội dung mục "${title}"
+${content}`;
+}
+
 // System prompt cho DânBot
 export function buildSystemPrompt(topicContext?: string): string {
   return `Bạn là **DânBot** — một trợ giảng AI cá nhân giúp sinh viên hiểu, học và ôn tập chủ đề "Tư tưởng Hồ Chí Minh về Nhà nước của dân, do dân, vì dân" (học phần HCM202).

@@ -25,6 +25,10 @@ type AIContextValue = {
   // Panel DânBot
   open: boolean;
   setOpen: (v: boolean) => void;
+  // Hỏi giới hạn theo 1 mục (sơ đồ tư duy)
+  scoped: { title: string; content: string } | null;
+  setScoped: (s: { title: string; content: string } | null) => void;
+  askAbout: (title: string, content: string) => void;
   // Quản lý key
   connect: (key: string) => Promise<boolean>;
   disconnect: () => void;
@@ -44,6 +48,15 @@ export function AIProvider({ children }: { children: ReactNode }) {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [topic, setTopic] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
+  const [scoped, setScoped] = useState<{ title: string; content: string } | null>(
+    null
+  );
+
+  const askAbout = useCallback((title: string, content: string) => {
+    setScoped({ title, content });
+    setTopic(title);
+    setOpen(true);
+  }, []);
 
   // Nạp key đã lưu
   useEffect(() => {
@@ -101,6 +114,9 @@ export function AIProvider({ children }: { children: ReactNode }) {
         setTopic,
         open,
         setOpen,
+        scoped,
+        setScoped,
+        askAbout,
         connect,
         disconnect,
       }}
