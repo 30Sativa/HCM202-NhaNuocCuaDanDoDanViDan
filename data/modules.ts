@@ -48,6 +48,12 @@ export const modules: LearnModule[] = [
         ],
       },
       {
+        heading: "Nhà nước thuộc về nhân dân",
+        body: [
+          "Nhà nước Việt Nam ra đời là kết quả của cuộc đấu tranh lâu dài, gian khổ của nhiều thế hệ người Việt Nam. Vì vậy, Nhà nước không phải của riêng một giai cấp hay tầng lớp nào mà thuộc về nhân dân — bảo vệ lợi ích của nhân dân và lấy lợi ích của nhân dân làm cơ bản.",
+        ],
+      },
+      {
         heading: "Bản chất Nhà nước",
         body: [
           "Nhà nước Việt Nam mang bản chất giai cấp công nhân, gắn với tính nhân dân và tính dân tộc, đặt dưới sự lãnh đạo của Đảng và định hướng phát triển theo con đường xã hội chủ nghĩa. Ba yếu tố này thống nhất chứ không tách rời.",
@@ -154,6 +160,18 @@ export const modules: LearnModule[] = [
           "Người có quyền lực càng lớn thì càng phải chịu sự ràng buộc của pháp luật.",
       },
       {
+        heading: "Vai trò kép của pháp luật",
+        body: [
+          "Pháp luật là cơ sở để bảo đảm “của dân – do dân – vì dân”. Nó có vai trò kép: vừa là công cụ để Nhà nước quản lý xã hội, vừa là công cụ để nhân dân làm chủ, kiểm tra và giám sát quyền lực nhà nước.",
+        ],
+        list: [
+          "Hoàn thiện hệ thống pháp luật",
+          "Tôn trọng, bảo đảm và bảo vệ quyền con người",
+          "Bảo đảm quyền và nghĩa vụ của công dân",
+          "Có cơ chế phân công, phối hợp và kiểm soát quyền lực",
+        ],
+      },
+      {
         heading: "Pháp quyền nhân nghĩa",
         body: [
           "Nét đặc sắc trong tư tưởng Hồ Chí Minh: kết hợp pháp luật với tính nhân văn. Pháp luật phải nghiêm minh nhưng không vô nhân đạo, phải hướng con người đến điều tốt.",
@@ -198,6 +216,7 @@ export const modules: LearnModule[] = [
           "Lãng phí — sử dụng nguồn lực công không hiệu quả",
           "Quan liêu — xa rời thực tế, xa rời nhân dân",
           "Tư túng, chia rẽ, kiêu ngạo",
+          "Hách dịch, cửa quyền",
           "Đặc quyền, đặc lợi — dùng quyền lực tạo lợi ích riêng",
         ],
       },

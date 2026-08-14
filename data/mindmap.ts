@@ -96,7 +96,7 @@ export const mindTree: TreeNode = {
       label: "Nhà nước pháp quyền",
       tone: "gold",
       aiContext:
-        "Nhà nước pháp quyền: Nhà nước Việt Nam Dân chủ Cộng hòa ra đời 02/09/1945; Tổng tuyển cử 06/01/1946; Quốc hội khóa I họp phiên đầu 02/03/1946 — thể hiện Nhà nước hợp hiến, hợp pháp, chính danh. Nhà nước quản lý xã hội bằng pháp luật và làm cho pháp luật có hiệu lực thực tế; chính Nhà nước và cán bộ, công chức cũng phải tuân thủ pháp luật. Pháp quyền nhân nghĩa: nghiêm minh nhưng nhân văn, bảo vệ quyền con người, công bằng và khuyến thiện (giáo dục, cảm hóa, thức tỉnh).",
+        "Nhà nước pháp quyền: Nhà nước Việt Nam Dân chủ Cộng hòa ra đời 02/09/1945; Tổng tuyển cử 06/01/1946; Quốc hội khóa I họp phiên đầu 02/03/1946 — thể hiện Nhà nước hợp hiến, hợp pháp, chính danh. Nhà nước quản lý xã hội bằng pháp luật và làm cho pháp luật có hiệu lực thực tế; chính Nhà nước và cán bộ, công chức cũng phải tuân thủ pháp luật. Pháp luật có vai trò kép: vừa là công cụ để Nhà nước quản lý xã hội, vừa là công cụ để nhân dân làm chủ, kiểm tra, giám sát quyền lực; cần hoàn thiện pháp luật, bảo đảm quyền con người, quyền công dân và có cơ chế phân công, phối hợp, kiểm soát quyền lực. Pháp quyền nhân nghĩa: nghiêm minh nhưng nhân văn, bảo vệ quyền con người, công bằng và khuyến thiện (giáo dục, cảm hóa, thức tỉnh).",
       children: [
         {
           id: "pq-hop-hien",
@@ -116,6 +116,15 @@ export const mindTree: TreeNode = {
           ],
         },
         {
+          id: "pq-vai-tro-kep",
+          label: "Vai trò kép của pháp luật",
+          children: [
+            { id: "pq-4a", label: "Công cụ để Nhà nước quản lý xã hội" },
+            { id: "pq-4b", label: "Công cụ để nhân dân làm chủ, kiểm tra, giám sát" },
+            { id: "pq-4c", label: "Cơ chế phân công, phối hợp, kiểm soát quyền lực" },
+          ],
+        },
+        {
           id: "pq-nhan-nghia",
           label: "Pháp quyền nhân nghĩa",
           children: [
@@ -130,7 +139,7 @@ export const mindTree: TreeNode = {
       label: "Kiểm soát quyền lực",
       tone: "gold",
       aiContext:
-        "Kiểm soát quyền lực nhà nước là tất yếu nhằm giữ vững bản chất Nhà nước, bảo đảm hiệu quả và phòng ngừa tha hóa. Nhân dân là chủ thể tối cao nên có quyền kiểm soát quyền lực. Nếu không kiểm soát: quyền lực → lạm dụng → tha hóa → đặc quyền, đặc lợi → xa dân. Cần phòng, chống: tham ô, lãng phí, quan liêu, tư túng, chia rẽ, kiêu ngạo, đặc quyền, đặc lợi. Đây là điều kiện để Nhà nước trong sạch, vững mạnh.",
+        "Kiểm soát quyền lực nhà nước là tất yếu nhằm giữ vững bản chất Nhà nước, bảo đảm hiệu quả và phòng ngừa tha hóa. Nhân dân là chủ thể tối cao nên có quyền kiểm soát quyền lực. Nếu không kiểm soát: quyền lực → lạm dụng → tha hóa → đặc quyền, đặc lợi → xa dân. Cần phòng, chống: tham ô, lãng phí, quan liêu, tư túng, chia rẽ, kiêu ngạo, hách dịch, cửa quyền, đặc quyền, đặc lợi. Đây là điều kiện để Nhà nước trong sạch, vững mạnh.",
       children: [
         { id: "ks-tat-yeu", label: "Có quyền lực → phải kiểm soát" },
         { id: "ks-nhan-dan", label: "Nhân dân kiểm soát quyền lực nhà nước" },
@@ -141,7 +150,9 @@ export const mindTree: TreeNode = {
             { id: "ks-3a", label: "Tham ô" },
             { id: "ks-3b", label: "Lãng phí" },
             { id: "ks-3c", label: "Quan liêu" },
-            { id: "ks-3d", label: "Đặc quyền, đặc lợi" },
+            { id: "ks-3d", label: "Tư túng, chia rẽ, kiêu ngạo" },
+            { id: "ks-3e", label: "Hách dịch, cửa quyền" },
+            { id: "ks-3f", label: "Đặc quyền, đặc lợi" },
           ],
         },
       ],

@@ -57,9 +57,11 @@ export const knowledge: KnowledgeEntry[] = [
       "Quản lý đất nước bằng pháp luật và làm pháp luật có hiệu lực thực tế",
       "Nhà nước và cán bộ cũng phải tuân thủ pháp luật",
       "Người có quyền lực càng lớn càng phải chịu ràng buộc của pháp luật",
+      "Pháp luật vừa là công cụ Nhà nước quản lý xã hội, vừa là công cụ để nhân dân làm chủ, kiểm tra, giám sát quyền lực",
+      "Có cơ chế phân công, phối hợp và kiểm soát quyền lực; bảo đảm quyền con người, quyền công dân",
       "Pháp quyền nhân nghĩa: nghiêm minh + nhân văn + khuyến thiện",
     ],
-    keywords: ["pháp quyền", "pháp luật", "hợp hiến", "thượng tôn", "nhân nghĩa", "khuyến thiện"],
+    keywords: ["pháp quyền", "pháp luật", "hợp hiến", "thượng tôn", "nhân nghĩa", "khuyến thiện", "phân công", "kiểm soát"],
   },
   {
     id: "kiem-soat-quyen-luc",
@@ -68,7 +70,7 @@ export const knowledge: KnowledgeEntry[] = [
     keyPoints: [
       "Kiểm soát quyền lực là tất yếu, giữ vững bản chất Nhà nước",
       "Không kiểm soát: quyền lực → lạm dụng → tha hóa → đặc quyền → xa dân",
-      "Phòng chống: tham ô, lãng phí, quan liêu, tư túng, đặc quyền, đặc lợi",
+      "Phòng chống: tham ô, lãng phí, quan liêu, tư túng, chia rẽ, kiêu ngạo, hách dịch, cửa quyền, đặc quyền, đặc lợi",
       "Xây dựng đội ngũ cán bộ có đạo đức, năng lực, trách nhiệm",
     ],
     keywords: ["kiểm soát", "tha hóa", "tham ô", "lãng phí", "quan liêu", "cán bộ", "trong sạch"],
