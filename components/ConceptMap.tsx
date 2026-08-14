@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { concepts, conceptMap } from "@/data/concepts";
 
 export default function ConceptMap() {
@@ -11,106 +11,126 @@ export default function ConceptMap() {
   const map = conceptMap[active];
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-start">
-      {/* Left: the tree */}
-      <div className="rounded-2xl border border-ink/10 bg-paper-2/40 p-7">
-        <div className="flex flex-col items-center">
-          <Node label="NHÀ NƯỚC" tone="ink" />
-          <Connector />
-          <div className="grid w-full grid-cols-3 gap-2">
-            {concepts.map((c) => (
+    <div className="grid gap-6 lg:grid-cols-[1fr_1.15fr] lg:items-start">
+      {/* Trái: bộ chọn khái niệm */}
+      <div className="rounded-2xl border border-ink/10 bg-paper-2/40 p-4 sm:p-6">
+        <div className="mb-4 flex items-center justify-center">
+          <span className="rounded-full bg-ink px-5 py-2 font-mono text-xs font-semibold uppercase tracking-widest text-paper">
+            Nhà nước
+          </span>
+        </div>
+        <p className="mb-4 text-center font-mono text-[0.7rem] uppercase tracking-wider text-ink-soft">
+          Quyền lực thuộc về ai?
+        </p>
+
+        <div className="space-y-2.5">
+          {concepts.map((c) => {
+            const isActive = active === c.id;
+            return (
               <button
                 key={c.id}
                 onClick={() => setActive(c.id)}
-                className={`rounded-xl border px-2 py-3 text-center font-mono text-xs uppercase tracking-wide transition-all ${
-                  active === c.id
-                    ? "border-primary bg-primary text-paper shadow-sm"
-                    : "border-ink/15 bg-paper text-ink-soft hover:border-primary hover:text-primary"
+                className={`flex w-full items-center gap-4 rounded-xl border p-4 text-left transition-all ${
+                  isActive
+                    ? "border-primary bg-primary/[0.06] shadow-sm"
+                    : "border-ink/10 bg-paper hover:border-primary/40 hover:bg-paper-2/60"
                 }`}
               >
-                {c.title}
-              </button>
-            ))}
-          </div>
-          <div className="grid w-full grid-cols-3 gap-2 pt-1">
-            {concepts.map((c) => (
-              <div key={c.id} className="flex flex-col items-center">
-                <ArrowDown size={13} className="my-1 text-gold-dark" />
-                <span className="text-center text-[0.7rem] leading-tight text-ink-soft">
-                  {c.question.replace("?", "")}
+                <span
+                  className={`flex h-11 w-11 flex-none items-center justify-center rounded-lg font-serif text-lg font-bold transition-colors ${
+                    isActive ? "bg-primary text-paper" : "bg-ink/5 text-ink-soft"
+                  }`}
+                >
+                  {c.index}
                 </span>
-              </div>
-            ))}
-          </div>
-          <div className="grid w-full grid-cols-3 gap-2 pt-2">
-            {concepts.map((c) => (
-              <div
-                key={c.id}
-                className="rounded-lg bg-gold/15 py-2 text-center font-serif text-sm font-semibold text-primary"
-              >
-                {c.answer}
-              </div>
-            ))}
-          </div>
+                <span className="min-w-0 flex-1">
+                  <span className="flex items-center justify-between gap-2">
+                    <span
+                      className={`font-serif text-lg font-bold ${
+                        isActive ? "text-primary" : "text-ink"
+                      }`}
+                    >
+                      {c.title}
+                    </span>
+                    <span className="hidden rounded-full bg-gold/15 px-2.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-wider text-gold-dark sm:inline">
+                      {c.answer}
+                    </span>
+                  </span>
+                  <span className="mt-0.5 block text-xs leading-snug text-ink-soft">
+                    {c.question}
+                  </span>
+                </span>
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      {/* Right: detail panel */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={active}
-          initial={{ opacity: 0, x: 16 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -16 }}
-          transition={{ duration: 0.35 }}
-          className="rounded-2xl border border-primary/20 bg-primary/[0.04] p-7"
-        >
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-gold-dark">
+      {/* Phải: chi tiết + sơ đồ dòng quyền lực */}
+      <motion.div
+        key={active}
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+        className="rounded-2xl border border-primary/20 bg-primary/[0.04] p-6 sm:p-7"
+      >
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-gold-dark">
             {current.index} · {current.role}
           </span>
-          <h3 className="mt-3 font-serif text-4xl font-bold text-primary">
+          <h3 className="mt-2 font-serif text-4xl font-bold text-primary">
             {current.title}
           </h3>
           <p className="mt-4 leading-relaxed text-ink">{current.description}</p>
 
-          <div className="mt-7 rounded-xl border border-ink/10 bg-paper p-5">
+          {/* Sơ đồ dòng quyền lực */}
+          <div className="mt-6 rounded-xl border border-ink/10 bg-paper p-5">
             <span className="font-mono text-[0.7rem] uppercase tracking-wider text-ink-soft">
               Dòng quyền lực
             </span>
-            <div className="mt-3 flex flex-col items-start gap-1.5">
-              {map.flow.map((step, i) => (
-                <div key={step} className="flex items-center gap-3">
-                  <span className="font-serif text-lg font-semibold text-ink">
-                    {step}
-                  </span>
-                  {i < map.flow.length - 1 && (
-                    <ArrowDown size={14} className="text-primary" />
-                  )}
-                </div>
-              ))}
+
+            <div className="relative mt-4 pl-1">
+              {/* đường nối dọc */}
+              <span className="absolute bottom-4 left-[0.6rem] top-2 w-0.5 bg-gradient-to-b from-gold-dark via-primary/40 to-primary" />
+
+              <div className="space-y-3">
+                {map.flow.map((step, i) => {
+                  const isLast = i === map.flow.length - 1;
+                  return (
+                    <motion.div
+                      key={step}
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 + i * 0.1 }}
+                      className="relative flex items-center gap-3.5"
+                    >
+                      <span
+                        className={`relative z-10 flex h-5 w-5 flex-none items-center justify-center rounded-full ring-4 ring-paper ${
+                          isLast ? "bg-primary" : "bg-gold-dark"
+                        }`}
+                      >
+                        <span className="h-1.5 w-1.5 rounded-full bg-paper" />
+                      </span>
+                      <span
+                        className={`rounded-lg px-4 py-2 font-serif text-lg font-semibold ${
+                          isLast
+                            ? "bg-primary text-paper"
+                            : "border border-ink/10 bg-paper-2/60 text-ink"
+                        }`}
+                      >
+                        {step}
+                      </span>
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
-            <p className="mt-4 border-t border-ink/10 pt-3 text-sm italic text-ink-soft">
+
+            <p className="mt-5 flex items-start gap-2 border-t border-ink/10 pt-4 text-sm italic leading-snug text-ink-soft">
+              <ArrowRight size={15} className="mt-0.5 flex-none text-primary" />
               {map.note}
             </p>
           </div>
         </motion.div>
-      </AnimatePresence>
     </div>
   );
-}
-
-function Node({ label, tone }: { label: string; tone: "ink" | "primary" }) {
-  return (
-    <div
-      className={`rounded-xl px-6 py-3 font-mono text-sm font-semibold uppercase tracking-wider ${
-        tone === "ink" ? "bg-ink text-paper" : "bg-primary text-paper"
-      }`}
-    >
-      {label}
-    </div>
-  );
-}
-
-function Connector() {
-  return <div className="my-3 h-6 w-px bg-ink/25" />;
 }
