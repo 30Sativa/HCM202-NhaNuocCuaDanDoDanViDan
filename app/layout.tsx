@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { AIProvider } from "@/components/ai/AIProvider";
 import DanBot from "@/components/ai/DanBot";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const sans = Inter({
   subsets: ["latin", "vietnamese"],
@@ -45,6 +46,7 @@ export default function RootLayout({
     <html lang="vi" className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
       <body className="min-h-screen bg-paper font-sans text-ink antialiased">
         <AIProvider>
+          <ScrollProgress />
           <Navbar />
           <main className="min-h-[70vh]">{children}</main>
           <Footer />

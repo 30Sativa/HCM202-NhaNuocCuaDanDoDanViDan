@@ -57,10 +57,10 @@ body {
     @apply h-px w-full bg-ink/15;
   }
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-mono text-sm uppercase tracking-widest text-paper transition-all hover:bg-primary-dark hover:gap-3;
+    @apply inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-mono text-sm uppercase tracking-widest text-paper transition-all duration-200 hover:bg-primary-dark hover:gap-3 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/25 active:translate-y-0 active:scale-[0.97];
   }
   .btn-ghost {
-    @apply inline-flex items-center gap-2 rounded-full border border-ink/25 px-6 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-all hover:border-primary hover:text-primary hover:gap-3;
+    @apply inline-flex items-center gap-2 rounded-full border border-ink/25 px-6 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-all duration-200 hover:border-primary hover:text-primary hover:gap-3 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.97];
   }
   .card {
     @apply rounded-2xl border border-ink/10 bg-paper-2/60 p-6 backdrop-blur-sm;

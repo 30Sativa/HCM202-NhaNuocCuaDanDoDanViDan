@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
+import TeamCarousel from "@/components/TeamCarousel";
 
 export const metadata = {
   title: "Giới thiệu · Tư tưởng Hồ Chí Minh",
@@ -81,7 +82,25 @@ export default function AboutPage() {
         </Reveal>
 
         <Reveal>
-          <div className="mt-14 rounded-2xl bg-primary px-7 py-10 text-center text-paper">
+          <div id="team" className="mt-16 scroll-mt-24">
+            <span className="kicker">Nhóm thực hiện</span>
+            <h2 className="mt-3 font-serif text-2xl font-bold text-ink md:text-3xl">
+              Thành viên nhóm
+            </h2>
+            <p className="mt-2 text-ink-soft">
+              Bốn thành viên cùng xây dựng dự án. Rê chuột để tạm dừng, nhấn thẻ
+              hoặc mũi tên để xoay.
+            </p>
+          </div>
+        </Reveal>
+        <Reveal>
+          <div className="mt-8">
+            <TeamCarousel />
+          </div>
+        </Reveal>
+
+        <Reveal>
+          <div className="mt-16 rounded-2xl bg-primary px-7 py-10 text-center text-paper">
             <p className="font-serif text-2xl font-bold">
               Sẵn sàng bắt đầu hành trình?
             </p>
