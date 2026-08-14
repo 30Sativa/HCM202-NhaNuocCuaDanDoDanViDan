@@ -12,6 +12,14 @@ export type ChatMessage = {
   content: string;
 };
 
+export type AiQuizQuestion = {
+  question: string;
+  options: { A: string; B: string; C: string; D: string };
+  correct: "A" | "B" | "C" | "D";
+  concept: string;
+  explanation: string;
+};
+
 function baseHeaders(apiKey: string): HeadersInit {
   return {
     "content-type": "application/json",
@@ -85,6 +93,73 @@ export async function complete(
     .map((b: { text: string }) => b.text)
     .join("");
   return text || "(không có nội dung)";
+}
+
+// Trích mảng JSON từ text (phòng khi model thêm chữ thừa).
+function extractJsonArray(text: string): string {
+  let t = text.trim();
+  // bỏ code fence nếu có
+  t = t.replace(/^```(?:json)?/i, "").replace(/```$/i, "").trim();
+  const start = t.indexOf("[");
+  const end = t.lastIndexOf("]");
+  if (start === -1 || end === -1 || end <= start) {
+    throw new Error("Không đọc được đề từ AI");
+  }
+  return t.slice(start, end + 1);
+}
+
+function isValidQuestion(q: unknown): q is AiQuizQuestion {
+  if (!q || typeof q !== "object") return false;
+  const o = q as Record<string, unknown>;
+  const opt = o.options as Record<string, unknown> | undefined;
+  return (
+    typeof o.question === "string" &&
+    !!opt &&
+    typeof opt.A === "string" &&
+    typeof opt.B === "string" &&
+    typeof opt.C === "string" &&
+    typeof opt.D === "string" &&
+    ["A", "B", "C", "D"].includes(o.correct as string) &&
+    typeof o.explanation === "string"
+  );
+}
+
+// Sinh bộ câu hỏi trắc nghiệm bằng AI.
+export async function generateQuiz(
+  apiKey: string,
+  system: string,
+  topic: string,
+  count: number
+): Promise<AiQuizQuestion[]> {
+  const prompt = `Tạo ${count} câu hỏi trắc nghiệm ôn tập về chủ đề: "${topic}".
+
+Yêu cầu:
+- Mỗi câu có đúng 4 lựa chọn A, B, C, D và chỉ 1 đáp án đúng.
+- Bám sát nguồn kiến thức đã cho; không hỏi ngoài phạm vi bài học.
+- Đa dạng: có câu khái niệm, có câu tình huống vận dụng.
+- "concept" là nhãn ngắn gọn của khái niệm liên quan (ví dụ: "Của dân", "Pháp quyền", "Kiểm soát quyền lực").
+- "explanation" giải thích ngắn gọn vì sao đáp án đúng.
+
+Chỉ trả về DUY NHẤT một mảng JSON hợp lệ (không markdown, không chữ thừa) theo schema:
+[{"question":"...","options":{"A":"...","B":"...","C":"...","D":"..."},"correct":"A","concept":"...","explanation":"..."}]`;
+
+  const raw = await complete(
+    apiKey,
+    system,
+    [{ role: "user", content: prompt }],
+    Math.min(4096, 700 + count * 320)
+  );
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(extractJsonArray(raw));
+  } catch {
+    throw new Error("AI trả về đề không hợp lệ. Thử lại giúp mình nhé.");
+  }
+  if (!Array.isArray(parsed)) throw new Error("AI trả về đề không hợp lệ.");
+  const valid = parsed.filter(isValidQuestion);
+  if (valid.length === 0) throw new Error("Không sinh được câu hỏi. Thử lại.");
+  return valid;
 }
 
 // Streaming — gọi onText mỗi khi có delta text mới.
