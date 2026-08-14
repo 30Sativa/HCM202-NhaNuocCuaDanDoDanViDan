@@ -2,190 +2,128 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Check, ChevronRight } from "lucide-react";
+import { ChevronRight, Sparkles } from "lucide-react";
 import { mindRoot, mindNodes, type MindNode } from "@/data/mindmap";
 import { useAI } from "./ai/AIProvider";
 
-const left = mindNodes.filter((n) => n.tone === "primary");
-const right = mindNodes.filter((n) => n.tone === "gold");
-
 export default function InteractiveMindMap() {
-  const [activeId, setActiveId] = useState<string | null>(null);
   const { askAbout } = useAI();
-  const active = mindNodes.find((n) => n.id === activeId) ?? null;
+  const [openIds, setOpenIds] = useState<Set<string>>(new Set([mindNodes[0].id]));
+
+  const toggle = (id: string) =>
+    setOpenIds((prev) => {
+      const next = new Set(prev);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
 
   return (
-    <div>
-      {/* Sơ đồ */}
-      <div className="rounded-2xl border border-ink/10 bg-paper-2/40 p-5 md:p-10">
-        {/* Desktop */}
-        <div className="hidden lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center lg:gap-x-4">
-          <div className="flex flex-col items-end gap-4">
-            {left.map((n) => (
-              <Branch
-                key={n.id}
-                node={n}
-                side="left"
-                active={activeId === n.id}
-                onClick={() => setActiveId(n.id)}
-              />
-            ))}
-          </div>
-          <Root />
-          <div className="flex flex-col items-start gap-4">
-            {right.map((n) => (
-              <Branch
-                key={n.id}
-                node={n}
-                side="right"
-                active={activeId === n.id}
-                onClick={() => setActiveId(n.id)}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile / tablet */}
-        <div className="lg:hidden">
-          <div className="flex justify-center">
-            <Root />
-          </div>
-          <div className="mt-5 space-y-2.5">
-            {mindNodes.map((n) => (
-              <Branch
-                key={n.id}
-                node={n}
-                side="right"
-                active={activeId === n.id}
-                onClick={() => setActiveId(n.id)}
-              />
-            ))}
-          </div>
-        </div>
+    <div className="rounded-2xl border border-ink/10 bg-paper-2/40 p-5 sm:p-8">
+      {/* Nút gốc */}
+      <div className="rounded-xl bg-ink px-5 py-3.5 text-paper shadow-md">
+        <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-gold-light">
+          {mindRoot.title}
+        </span>
+        <p className="font-serif text-xl font-bold leading-tight">
+          {mindRoot.lines.join(" · ")}
+        </p>
       </div>
 
-      {/* Chi tiết mục đang chọn */}
-      {active ? (
-        <motion.div
-          key={active.id}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 rounded-2xl border border-primary/20 bg-primary/[0.04] p-6 sm:p-7"
-        >
-          <span
-            className={`font-mono text-xs uppercase tracking-[0.2em] ${
-              active.tone === "primary" ? "text-primary" : "text-gold-dark"
-            }`}
-          >
-            {active.short}
-          </span>
-          <h3 className="mt-1 font-serif text-3xl font-bold text-primary">
-            {active.title}
-          </h3>
-
-          <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
-            {active.points.map((p) => (
-              <li
-                key={p}
-                className="flex items-start gap-2.5 rounded-lg border border-ink/10 bg-paper px-4 py-2.5 text-sm text-ink"
-              >
-                <Check size={15} className="mt-0.5 flex-none text-primary" />
-                {p}
-              </li>
-            ))}
-          </ul>
-
-          <button
-            onClick={() => askAbout(active.title, active.aiContext)}
-            className="btn-primary mt-6"
-          >
-            <Sparkles size={16} /> Hỏi DânBot về mục này
-          </button>
-          <p className="mt-2 text-xs italic text-ink-soft">
-            DânBot sẽ chỉ trả lời trong phạm vi mục “{active.title}”.
-          </p>
-        </motion.div>
-      ) : (
-        <p className="mt-6 text-center font-mono text-xs uppercase tracking-wider text-ink-soft">
-          Nhấn vào một nhánh để mở chi tiết & hỏi AI
-        </p>
-      )}
-    </div>
-  );
-}
-
-function Root() {
-  return (
-    <div className="mx-auto max-w-[13rem] rounded-2xl bg-ink px-6 py-5 text-center text-paper shadow-lg">
-      <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-gold-light">
-        {mindRoot.title}
-      </span>
-      <p className="mt-1 font-serif text-xl font-bold leading-tight">
-        {mindRoot.lines.map((l) => (
-          <span key={l} className="block">
-            {l}
-          </span>
+      {/* Cây nhánh */}
+      <div className="ml-3 mt-2 space-y-2 border-l border-dashed border-ink/20 pl-4 sm:ml-5 sm:pl-6">
+        {mindNodes.map((node) => (
+          <NodeRow
+            key={node.id}
+            node={node}
+            open={openIds.has(node.id)}
+            onToggle={() => toggle(node.id)}
+            onAsk={() => askAbout(node.title, node.aiContext)}
+          />
         ))}
+      </div>
+
+      <p className="mt-5 flex items-center gap-1.5 font-mono text-[0.7rem] uppercase tracking-wider text-ink-soft">
+        <ChevronRight size={12} /> Nhấn để mở nhánh ·{" "}
+        <Sparkles size={12} className="text-primary" /> hỏi AI riêng từng mục
       </p>
     </div>
   );
 }
 
-function Branch({
+function NodeRow({
   node,
-  side,
-  active,
-  onClick,
+  open,
+  onToggle,
+  onAsk,
 }: {
   node: MindNode;
-  side: "left" | "right";
-  active: boolean;
-  onClick: () => void;
+  open: boolean;
+  onToggle: () => void;
+  onAsk: () => void;
 }) {
   const dot = node.tone === "primary" ? "bg-primary" : "bg-gold-dark";
   const titleColor = node.tone === "primary" ? "text-primary" : "text-gold-dark";
-  const line = node.tone === "primary" ? "bg-primary/40" : "bg-gold-dark/40";
 
   return (
-    <div
-      className={`flex w-full max-w-sm items-center gap-2 ${
-        side === "left" ? "flex-row-reverse text-right" : ""
-      }`}
-    >
-      <span className={`hidden h-0.5 w-6 flex-none rounded-full lg:block ${line}`} />
-      <button
-        onClick={onClick}
-        className={`group flex-1 rounded-xl border p-4 text-left transition-all ${
-          active
-            ? "border-primary bg-primary/[0.06] shadow-sm"
-            : "border-ink/10 bg-paper hover:border-primary/40 hover:bg-paper-2/60"
+    <div>
+      <div
+        className={`flex items-center gap-2 rounded-xl border p-2.5 transition-colors ${
+          open
+            ? "border-primary/30 bg-primary/[0.05]"
+            : "border-ink/10 bg-paper hover:border-primary/30"
         }`}
       >
-        <div
-          className={`flex items-center gap-2 ${
-            side === "left" ? "flex-row-reverse" : ""
-          }`}
+        {/* Mở/đóng nhánh */}
+        <button
+          onClick={onToggle}
+          className="flex flex-1 items-center gap-2.5 text-left"
+          aria-expanded={open}
         >
-          <span className={`h-2.5 w-2.5 flex-none rounded-full ${dot}`} />
-          <span className={`font-serif text-lg font-bold ${titleColor}`}>
-            {node.title}
-          </span>
           <ChevronRight
-            size={15}
-            className={`ml-auto text-ink-soft transition-transform group-hover:translate-x-0.5 ${
-              side === "left" ? "rotate-180" : ""
+            size={18}
+            className={`flex-none text-ink-soft transition-transform ${
+              open ? "rotate-90 text-primary" : ""
             }`}
           />
-        </div>
-        <p
-          className={`mt-1 text-xs text-ink-soft ${
-            side === "left" ? "text-right" : ""
-          }`}
+          <span className={`h-2.5 w-2.5 flex-none rounded-full ${dot}`} />
+          <span className="min-w-0">
+            <span className={`font-serif text-lg font-bold ${titleColor}`}>
+              {node.title}
+            </span>
+            <span className="ml-2 text-xs text-ink-soft">{node.short}</span>
+          </span>
+        </button>
+
+        {/* Hỏi AI riêng mục này */}
+        <button
+          onClick={onAsk}
+          title={`Hỏi DânBot về "${node.title}"`}
+          className="flex flex-none items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-wider text-paper transition-all hover:bg-primary-dark hover:gap-2"
         >
-          {node.short}
-        </p>
-      </button>
+          <Sparkles size={13} />
+          <span className="hidden sm:inline">Hỏi AI</span>
+        </button>
+      </div>
+
+      {/* Nhánh con */}
+      {open && (
+        <motion.ul
+          initial={{ opacity: 0, y: -4 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25 }}
+          className="ml-5 mt-2 space-y-1.5 border-l border-dashed border-ink/20 pl-4 sm:ml-7 sm:pl-6"
+        >
+          {node.points.map((p) => (
+            <li
+              key={p}
+              className="flex items-start gap-2 rounded-lg bg-paper px-3 py-2 text-sm text-ink"
+            >
+              <span className={`mt-1.5 h-1.5 w-1.5 flex-none rounded-full ${dot}`} />
+              {p}
+            </li>
+          ))}
+        </motion.ul>
+      )}
     </div>
   );
 }
