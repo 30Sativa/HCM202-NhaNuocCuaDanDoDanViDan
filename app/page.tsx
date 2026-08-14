@@ -5,6 +5,7 @@ import ConceptCards from "@/components/ConceptCards";
 import ConceptMap from "@/components/ConceptMap";
 import PowerFlow from "@/components/PowerFlow";
 import KnowledgeGraph from "@/components/KnowledgeGraph";
+import MindMap from "@/components/MindMap";
 import Reveal from "@/components/Reveal";
 import TeamCarousel from "@/components/TeamCarousel";
 import Timeline from "@/components/Timeline";
@@ -99,6 +100,27 @@ export default function HomePage() {
             <KnowledgeGraph />
           </div>
         </Reveal>
+      </section>
+
+      {/* Mindmap */}
+      <section className="bg-paper-2/30 py-20 md:py-28">
+        <div className="mx-auto max-w-content px-5 md:px-8">
+          <Reveal>
+            <span className="kicker">Sơ đồ tư duy</span>
+            <h2 className="mt-3 font-serif text-4xl font-bold text-ink md:text-5xl">
+              Mindmap học phần
+            </h2>
+            <p className="mt-4 max-w-2xl text-ink-soft">
+              Toàn bộ nội dung tỏa ra từ một gốc: Nhà nước của dân, do dân, vì
+              dân — cùng các nhánh pháp quyền, kiểm soát quyền lực và vận dụng.
+            </p>
+          </Reveal>
+          <Reveal>
+            <div className="mt-10">
+              <MindMap />
+            </div>
+          </Reveal>
+        </div>
       </section>
 
       {/* Modules preview */}
@@ -203,42 +225,22 @@ export default function HomePage() {
 
       {/* Về dự án */}
       <section id="ve-du-an" className="bg-paper-2/30 scroll-mt-24 py-20 md:py-28">
-        <div className="mx-auto max-w-content px-5 md:px-8">
-          <div className="grid gap-10 md:grid-cols-2">
-            <Reveal>
-              <span className="kicker">Về dự án</span>
-              <h2 className="mt-4 font-serif text-3xl font-bold text-ink md:text-4xl">
-                Nguồn nội dung
-              </h2>
-              <p className="mt-4 leading-relaxed text-ink-soft">
-                Nội dung được tổng hợp từ giáo trình Tư tưởng Hồ Chí Minh và các
-                Session 13–17: Nhà nước của dân – do dân – vì dân (Session 15),
-                Nhà nước pháp quyền, kiểm soát quyền lực và phòng chống tiêu cực
-                (Session 16), cùng phần vận dụng vào xây dựng Nhà nước hiện nay.
-              </p>
-              <p className="mt-4 font-mono text-sm italic text-primary">
-                “Đừng đọc lý thuyết. Hãy trải nghiệm nó.”
-              </p>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <span className="kicker">Công nghệ</span>
-              <h2 className="mt-4 font-serif text-3xl font-bold text-ink md:text-4xl">
-                Frontend hiện đại
-              </h2>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Lucide", "DânBot AI"].map(
-                  (t) => (
-                    <span
-                      key={t}
-                      className="rounded-full border border-ink/15 bg-paper px-4 py-1.5 font-mono text-xs uppercase tracking-wider text-ink-soft"
-                    >
-                      {t}
-                    </span>
-                  )
-                )}
-              </div>
-            </Reveal>
-          </div>
+        <div className="mx-auto max-w-3xl px-5 md:px-8">
+          <Reveal>
+            <span className="kicker">Về dự án</span>
+            <h2 className="mt-4 font-serif text-3xl font-bold text-ink md:text-4xl">
+              Nguồn nội dung
+            </h2>
+            <p className="mt-4 leading-relaxed text-ink-soft">
+              Nội dung được tổng hợp từ giáo trình Tư tưởng Hồ Chí Minh và các
+              Session 13–17: Nhà nước của dân – do dân – vì dân (Session 15), Nhà
+              nước pháp quyền, kiểm soát quyền lực và phòng chống tiêu cực
+              (Session 16), cùng phần vận dụng vào xây dựng Nhà nước hiện nay.
+            </p>
+            <p className="mt-4 font-mono text-sm italic text-primary">
+              “Đừng đọc lý thuyết. Hãy trải nghiệm nó.”
+            </p>
+          </Reveal>
         </div>
       </section>
 
