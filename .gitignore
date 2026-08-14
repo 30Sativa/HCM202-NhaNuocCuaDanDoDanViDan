@@ -438,3 +438,7 @@ next-env.d.ts
 # Large source docs (kept locally, not pushed)
 Docs/*.pptx
 Docs/*.pdf
+
+# Env (chứa API key — KHÔNG commit)
+.env
+.env*.local
