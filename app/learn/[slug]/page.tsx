@@ -12,7 +12,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const m = getModule(params.slug);
   return {
-    title: m ? `${m.title} · 3D — DÂN • DO • VÌ` : "Không tìm thấy",
+    title: m ? `${m.title} · Tư tưởng Hồ Chí Minh` : "Không tìm thấy",
     description: m?.summary,
   };
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -6,18 +7,29 @@ export default function Footer() {
       <div className="mx-auto max-w-content px-5 py-12 md:px-8">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
-            <div className="flex items-baseline gap-2">
-              <span className="font-serif text-3xl font-bold text-primary">3D</span>
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
-                DÂN • DO • VÌ
+            <div className="flex items-center gap-3">
+              <Image
+                src="/logo.png"
+                alt="Tư tưởng Hồ Chí Minh"
+                width={48}
+                height={48}
+                className="h-12 w-12 rounded-full object-cover object-[center_30%] ring-1 ring-ink/10"
+              />
+              <span className="leading-tight">
+                <span className="block font-serif text-xl font-bold text-primary">
+                  Tư tưởng Hồ Chí Minh
+                </span>
+                <span className="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-ink-soft">
+                  Của dân · Do dân · Vì dân
+                </span>
               </span>
             </div>
-            <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+            <p className="mt-4 text-sm leading-relaxed text-ink-soft">
               Một hành trình tương tác về tư tưởng Hồ Chí Minh: Nhà nước của dân,
               do dân, vì dân.
             </p>
             <p className="mt-3 font-mono text-xs italic text-primary">
-              “Don&apos;t read the theory. Experience it.”
+              “Đừng đọc lý thuyết. Hãy trải nghiệm nó.”
             </p>
           </div>
 

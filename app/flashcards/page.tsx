@@ -3,7 +3,7 @@ import Flashcards from "@/components/Flashcards";
 import { AiTopic } from "@/components/ai/AIProvider";
 
 export const metadata = {
-  title: "Flashcards · 3D — DÂN • DO • VÌ",
+  title: "Flashcards · Tư tưởng Hồ Chí Minh",
   description: "Ôn thi nhanh với thẻ ghi nhớ lật hai mặt.",
 };
 

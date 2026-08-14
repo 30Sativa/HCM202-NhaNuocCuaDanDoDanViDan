@@ -25,7 +25,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "3D — DÂN • DO • VÌ",
+  title: "Tư tưởng Hồ Chí Minh — Nhà nước của dân, do dân, vì dân",
   description:
     "Một hành trình tương tác để hiểu tư tưởng Hồ Chí Minh về Nhà nước của dân, do dân, vì dân. Don't read the theory. Experience it.",
   keywords: [

@@ -4,7 +4,7 @@ import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 
 export const metadata = {
-  title: "Giới thiệu · 3D — DÂN • DO • VÌ",
+  title: "Giới thiệu · Tư tưởng Hồ Chí Minh",
   description: "Về dự án học tập tương tác này.",
 };
 
@@ -24,7 +24,7 @@ export default function AboutPage() {
       <PageHeader
         kicker="Về dự án"
         title="Đừng đọc lý thuyết. Hãy trải nghiệm nó."
-        intro="3D — DÂN • DO • VÌ biến một chương lý thuyết thành một hành trình tương tác, giúp người học hiểu được logic quyền lực nhà nước theo tư tưởng Hồ Chí Minh."
+        intro="Website này biến một chương lý thuyết thành một hành trình tương tác, giúp người học hiểu được logic quyền lực nhà nước theo tư tưởng Hồ Chí Minh về Nhà nước của dân, do dân, vì dân."
       />
 
       <section className="mx-auto max-w-3xl px-5 py-16 md:px-8">

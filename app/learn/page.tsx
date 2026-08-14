@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 import { modules } from "@/data/modules";
 
 export const metadata = {
-  title: "Học · 3D — DÂN • DO • VÌ",
+  title: "Học · Tư tưởng Hồ Chí Minh",
   description: "Năm module về tư tưởng Hồ Chí Minh: từ Nhà nước dân chủ đến vận dụng.",
 };
 

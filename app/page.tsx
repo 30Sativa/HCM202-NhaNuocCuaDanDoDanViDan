@@ -41,13 +41,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3D concept cards */}
+      {/* Concept cards */}
       <section className="bg-paper-2/30 py-20 md:py-28">
         <div className="mx-auto max-w-content px-5 md:px-8">
           <Reveal>
             <div className="flex items-end justify-between gap-4">
               <div>
-                <span className="kicker">3D — Dân • Do • Vì</span>
+                <span className="kicker">Của dân · Do dân · Vì dân</span>
                 <h2 className="mt-4 font-serif text-4xl font-bold text-ink md:text-5xl">
                   Ba chữ, một chỉnh thể
                 </h2>

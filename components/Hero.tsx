@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowDown } from "lucide-react";
 
@@ -35,10 +36,26 @@ export default function Hero() {
       </div>
 
       <div className="mx-auto max-w-content px-5 pb-20 pt-16 md:px-8 md:pb-28 md:pt-24">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="mb-6 inline-block overflow-hidden rounded-full ring-1 ring-ink/10 shadow-sm"
+        >
+          <Image
+            src="/logo.png"
+            alt="Tư tưởng Hồ Chí Minh — Nhà nước của dân, do dân, vì dân"
+            width={96}
+            height={96}
+            priority
+            className="h-20 w-20 object-cover object-[center_30%] md:h-24 md:w-24"
+          />
+        </motion.div>
+
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
           className="kicker"
         >
           Tư tưởng Hồ Chí Minh · Học phần HCM202

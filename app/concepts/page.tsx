@@ -6,7 +6,7 @@ import ConceptMap from "@/components/ConceptMap";
 import PowerFlow from "@/components/PowerFlow";
 
 export const metadata = {
-  title: "Khái niệm · 3D — DÂN • DO • VÌ",
+  title: "Khái niệm · Tư tưởng Hồ Chí Minh",
   description: "Sơ đồ khái niệm tương tác: của dân, do dân, vì dân và dòng quyền lực.",
 };
 
@@ -15,7 +15,7 @@ export default function ConceptsPage() {
     <>
       <AiTopic title="Của dân – Do dân – Vì dân (bản đồ khái niệm)" />
       <PageHeader
-        kicker="3D — Dân • Do • Vì"
+        kicker="Của dân · Do dân · Vì dân"
         title="Bản đồ khái niệm"
         intro="Toàn bộ tư tưởng xoay quanh một chủ thể duy nhất: Nhân dân. Khám phá mối quan hệ giữa của dân, do dân và vì dân qua các thành phần tương tác."
       />

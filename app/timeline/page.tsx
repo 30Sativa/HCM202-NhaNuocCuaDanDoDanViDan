@@ -3,7 +3,7 @@ import Timeline from "@/components/Timeline";
 import { AiTopic } from "@/components/ai/AIProvider";
 
 export const metadata = {
-  title: "Timeline · 3D — DÂN • DO • VÌ",
+  title: "Timeline · Tư tưởng Hồ Chí Minh",
   description: "Các mốc lịch sử: 02/09/1945, 06/01/1946, 02/03/1946 — Nhà nước hợp hiến, hợp pháp.",
 };
 

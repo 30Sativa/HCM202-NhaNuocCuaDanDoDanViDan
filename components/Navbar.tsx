@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -22,10 +23,24 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/85 backdrop-blur-md">
       <nav className="mx-auto flex max-w-content items-center justify-between px-5 py-3.5 md:px-8">
-        <Link href="/" className="group flex items-baseline gap-2" onClick={() => setOpen(false)}>
-          <span className="font-serif text-2xl font-bold leading-none text-primary">3D</span>
-          <span className="hidden font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ink-soft sm:inline">
-            DÂN • DO • VÌ
+        <Link href="/" className="group flex items-center gap-2.5" onClick={() => setOpen(false)}>
+          <span className="overflow-hidden rounded-full ring-1 ring-ink/10">
+            <Image
+              src="/logo.png"
+              alt="Tư tưởng Hồ Chí Minh"
+              width={40}
+              height={40}
+              priority
+              className="h-9 w-9 object-cover object-[center_30%]"
+            />
+          </span>
+          <span className="leading-tight">
+            <span className="block font-serif text-base font-bold text-primary">
+              Tư tưởng Hồ Chí Minh
+            </span>
+            <span className="hidden font-mono text-[0.6rem] uppercase tracking-[0.15em] text-ink-soft sm:block">
+              Của dân · Do dân · Vì dân
+            </span>
           </span>
         </Link>
 

@@ -5,7 +5,7 @@ import QuizRunner from "@/components/QuizRunner";
 import { AiTopic } from "@/components/ai/AIProvider";
 
 export const metadata = {
-  title: "Quiz · 3D — DÂN • DO • VÌ",
+  title: "Quiz · Tư tưởng Hồ Chí Minh",
   description: "Quiz tình huống — hiểu bản chất, không học thuộc đáp án.",
 };
 
