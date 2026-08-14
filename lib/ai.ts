@@ -1,11 +1,10 @@
-// DânBot — client gọi thẳng Anthropic Claude API từ trình duyệt (BYOK).
-// Người dùng tự nhập API key; không cần backend.
+// DânBot — client gọi thẳng Google Gemini API từ trình duyệt (BYOK).
+// Người dùng tự nhập API key (Google AI Studio); không cần backend.
 
-const API_URL = "https://api.anthropic.com/v1/messages";
-const API_VERSION = "2023-06-01";
+const BASE = "https://generativelanguage.googleapis.com/v1beta/models";
 
-// Theo hướng dẫn: dùng claude-opus-5 trừ khi người dùng chỉ định model khác.
-export const AI_MODEL = "claude-opus-5";
+// Model mặc định — có thể đổi sang "gemini-2.0-flash" hoặc "gemini-2.5-pro".
+export const AI_MODEL = "gemini-2.5-flash";
 
 export type ChatMessage = {
   role: "user" | "assistant";
@@ -20,30 +19,24 @@ export type AiQuizQuestion = {
   explanation: string;
 };
 
-function baseHeaders(apiKey: string): HeadersInit {
+function headers(apiKey: string): HeadersInit {
   return {
     "content-type": "application/json",
-    "x-api-key": apiKey,
-    "anthropic-version": API_VERSION,
-    // Cho phép gọi trực tiếp từ trình duyệt (bỏ qua CORS)
-    "anthropic-dangerous-direct-browser-access": "true",
+    "x-goog-api-key": apiKey,
   };
 }
 
-function bodyFor(
-  system: string,
-  messages: ChatMessage[],
-  maxTokens: number,
-  stream: boolean
-) {
+function buildBody(system: string, messages: ChatMessage[], maxTokens: number) {
   return JSON.stringify({
-    model: AI_MODEL,
-    max_tokens: maxTokens,
-    // Tắt thinking ở effort mặc định để phản hồi nhanh, tiết kiệm token trên key của người dùng.
-    thinking: { type: "disabled" },
-    system,
-    messages,
-    stream,
+    system_instruction: system ? { parts: [{ text: system }] } : undefined,
+    contents: messages.map((m) => ({
+      role: m.role === "assistant" ? "model" : "user",
+      parts: [{ text: m.content }],
+    })),
+    generationConfig: {
+      maxOutputTokens: maxTokens,
+      temperature: 0.7,
+    },
   });
 }
 
@@ -56,13 +49,29 @@ async function readError(res: Response): Promise<string> {
   }
 }
 
+// Lấy text từ một GenerateContentResponse (hoặc chunk streaming).
+function extractText(data: {
+  candidates?: { content?: { parts?: { text?: string }[] } }[];
+  promptFeedback?: { blockReason?: string };
+}): string {
+  const cand = data.candidates?.[0];
+  if (!cand) {
+    const reason = data.promptFeedback?.blockReason;
+    return reason ? `⚠️ Nội dung bị chặn (${reason}).` : "";
+  }
+  const parts = cand.content?.parts ?? [];
+  return parts.map((p) => p.text ?? "").join("");
+}
+
 // Kiểm tra kết nối — gọi 1 request nhỏ để xác thực key.
-export async function testConnection(apiKey: string): Promise<{ ok: boolean; error?: string }> {
+export async function testConnection(
+  apiKey: string
+): Promise<{ ok: boolean; error?: string }> {
   try {
-    const res = await fetch(API_URL, {
+    const res = await fetch(`${BASE}/${AI_MODEL}:generateContent`, {
       method: "POST",
-      headers: baseHeaders(apiKey),
-      body: bodyFor("Bạn là trợ lý.", [{ role: "user", content: "OK" }], 8, false),
+      headers: headers(apiKey),
+      body: buildBody("Bạn là trợ lý.", [{ role: "user", content: "OK" }], 16),
     });
     if (!res.ok) return { ok: false, error: await readError(res) };
     return { ok: true };
@@ -78,27 +87,20 @@ export async function complete(
   messages: ChatMessage[],
   maxTokens = 2048
 ): Promise<string> {
-  const res = await fetch(API_URL, {
+  const res = await fetch(`${BASE}/${AI_MODEL}:generateContent`, {
     method: "POST",
-    headers: baseHeaders(apiKey),
-    body: bodyFor(system, messages, maxTokens, false),
+    headers: headers(apiKey),
+    body: buildBody(system, messages, maxTokens),
   });
   if (!res.ok) throw new Error(await readError(res));
   const data = await res.json();
-  if (data.stop_reason === "refusal") {
-    return "Xin lỗi, mình không thể trả lời yêu cầu này.";
-  }
-  const text = (data.content || [])
-    .filter((b: { type: string }) => b.type === "text")
-    .map((b: { text: string }) => b.text)
-    .join("");
+  const text = extractText(data);
   return text || "(không có nội dung)";
 }
 
 // Trích mảng JSON từ text (phòng khi model thêm chữ thừa).
 function extractJsonArray(text: string): string {
   let t = text.trim();
-  // bỏ code fence nếu có
   t = t.replace(/^```(?:json)?/i, "").replace(/```$/i, "").trim();
   const start = t.indexOf("[");
   const end = t.lastIndexOf("]");
@@ -147,7 +149,7 @@ Chỉ trả về DUY NHẤT một mảng JSON hợp lệ (không markdown, khôn
     apiKey,
     system,
     [{ role: "user", content: prompt }],
-    Math.min(4096, 700 + count * 320)
+    Math.min(8192, 900 + count * 380)
   );
 
   let parsed: unknown;
@@ -170,12 +172,15 @@ export async function streamChat(
   onText: (delta: string) => void,
   opts: { maxTokens?: number; signal?: AbortSignal } = {}
 ): Promise<void> {
-  const res = await fetch(API_URL, {
-    method: "POST",
-    headers: baseHeaders(apiKey),
-    body: bodyFor(system, messages, opts.maxTokens ?? 2048, true),
-    signal: opts.signal,
-  });
+  const res = await fetch(
+    `${BASE}/${AI_MODEL}:streamGenerateContent?alt=sse`,
+    {
+      method: "POST",
+      headers: headers(apiKey),
+      body: buildBody(system, messages, opts.maxTokens ?? 2048),
+      signal: opts.signal,
+    }
+  );
 
   if (!res.ok) throw new Error(await readError(res));
   if (!res.body) throw new Error("Không nhận được luồng dữ liệu");
@@ -199,15 +204,8 @@ export async function streamChat(
       if (!payload || payload === "[DONE]") continue;
       try {
         const evt = JSON.parse(payload);
-        if (
-          evt.type === "content_block_delta" &&
-          evt.delta?.type === "text_delta" &&
-          typeof evt.delta.text === "string"
-        ) {
-          onText(evt.delta.text);
-        } else if (evt.type === "error") {
-          throw new Error(evt.error?.message || "Lỗi luồng dữ liệu");
-        }
+        const text = extractText(evt);
+        if (text) onText(text);
       } catch {
         // Bỏ qua dòng không parse được
       }

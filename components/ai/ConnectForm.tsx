@@ -39,13 +39,13 @@ export default function ConnectForm({ compact = false }: { compact?: boolean }) 
   return (
     <form onSubmit={handleSubmit} className={compact ? "" : "rounded-2xl border border-ink/10 bg-paper-2/50 p-6"}>
       <label className="font-mono text-xs uppercase tracking-wider text-ink-soft">
-        Anthropic API Key
+        Google Gemini API Key
       </label>
       <input
         type="password"
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        placeholder="sk-ant-..."
+        placeholder="AIza..."
         autoComplete="off"
         className="mt-2 w-full rounded-xl border border-ink/15 bg-paper px-4 py-3 font-mono text-sm outline-none transition-colors focus:border-primary"
       />
@@ -73,14 +73,14 @@ export default function ConnectForm({ compact = false }: { compact?: boolean }) 
         <Lock size={14} className="mt-0.5 flex-none" />
         <span>
           Key được trình duyệt của bạn dùng để gọi AI trực tiếp — không gửi qua
-          máy chủ của website. Lấy key tại{" "}
+          máy chủ của website. Lấy key miễn phí tại{" "}
           <a
-            href="https://console.anthropic.com/settings/keys"
+            href="https://aistudio.google.com/apikey"
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary underline"
           >
-            console.anthropic.com
+            aistudio.google.com/apikey
           </a>
           .
         </span>
