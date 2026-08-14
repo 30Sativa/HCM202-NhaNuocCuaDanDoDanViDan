@@ -3,21 +3,14 @@ import { ArrowRight } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import TeamCarousel from "@/components/TeamCarousel";
+import { coreChain } from "@/data/knowledge";
 
 export const metadata = {
   title: "Giới thiệu · Tư tưởng Hồ Chí Minh",
   description: "Về dự án học tập tương tác này.",
 };
 
-const formula = [
-  "Nhân dân là chủ",
-  "Nhân dân lập ra Nhà nước",
-  "Nhân dân tham gia & kiểm soát",
-  "Nhà nước hoạt động theo pháp luật",
-  "Nhà nước phục vụ nhân dân",
-  "Quyền lực được kiểm soát",
-  "Nhà nước trong sạch, vững mạnh",
-];
+const formula = coreChain;
 
 export default function AboutPage() {
   return (

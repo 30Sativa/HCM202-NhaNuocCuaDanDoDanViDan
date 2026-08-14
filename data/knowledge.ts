@@ -89,6 +89,17 @@ export const knowledge: KnowledgeEntry[] = [
   },
 ];
 
+// Chuỗi logic cốt lõi — dùng ở trang chủ và trang Giới thiệu.
+export const coreChain = [
+  "Nhân dân là chủ",
+  "Nhân dân lập ra Nhà nước",
+  "Nhân dân tham gia & kiểm soát",
+  "Nhà nước hoạt động theo pháp luật",
+  "Nhà nước phục vụ nhân dân",
+  "Quyền lực được kiểm soát",
+  "Nhà nước trong sạch, vững mạnh",
+];
+
 // Xây dựng chuỗi knowledge base để đưa vào system prompt
 function buildKnowledgeText(): string {
   const kb = knowledge

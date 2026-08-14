@@ -5,7 +5,9 @@ import ConceptCards from "@/components/ConceptCards";
 import ConceptMap from "@/components/ConceptMap";
 import PowerFlow from "@/components/PowerFlow";
 import Reveal from "@/components/Reveal";
+import TeamCarousel from "@/components/TeamCarousel";
 import { modules } from "@/data/modules";
+import { coreChain } from "@/data/knowledge";
 
 export default function HomePage() {
   return (
@@ -123,6 +125,56 @@ export default function HomePage() {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      {/* Logic cốt lõi */}
+      <section className="bg-paper-2/30 py-20 md:py-28">
+        <div className="mx-auto max-w-content px-5 md:px-8">
+          <Reveal>
+            <span className="kicker">Logic cốt lõi</span>
+            <h2 className="mt-4 max-w-2xl font-serif text-4xl font-bold text-ink md:text-5xl">
+              Cô đọng thành một chuỗi thống nhất
+            </h2>
+          </Reveal>
+          <div className="mt-12 flex flex-wrap items-center gap-x-3 gap-y-4">
+            {coreChain.map((step, i) => (
+              <Reveal key={step} delay={i * 0.06}>
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-paper px-4 py-2.5">
+                    <span className="font-serif text-lg font-bold text-primary">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-sm font-medium text-ink">{step}</span>
+                  </span>
+                  {i < coreChain.length - 1 && (
+                    <ArrowRight size={16} className="text-gold-dark" />
+                  )}
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Thành viên nhóm */}
+      <section className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-28">
+        <Reveal>
+          <div className="text-center">
+            <span className="kicker">Nhóm thực hiện</span>
+            <h2 className="mt-4 font-serif text-4xl font-bold text-ink md:text-5xl">
+              Thành viên nhóm
+            </h2>
+            <p className="mx-auto mt-3 max-w-md text-ink-soft">
+              Bốn thành viên cùng xây dựng dự án. Rê chuột để tạm dừng, nhấn thẻ
+              hoặc mũi tên để xoay.
+            </p>
+          </div>
+        </Reveal>
+        <Reveal>
+          <div className="mt-12">
+            <TeamCarousel />
+          </div>
+        </Reveal>
       </section>
 
       {/* CTA */}
