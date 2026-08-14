@@ -21,13 +21,13 @@ export default function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-[center_28%]"
         />
       </motion.div>
 
       {/* Lớp tối để chữ nổi */}
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/45 to-ink/10" />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/55 to-ink/10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-ink/65 via-ink/20 to-transparent" />
 
       {/* Chữ đè lên banner */}
       <div className="relative mx-auto w-full max-w-content px-5 pb-12 md:px-8 md:pb-20">

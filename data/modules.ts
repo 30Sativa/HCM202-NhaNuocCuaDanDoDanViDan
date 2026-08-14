@@ -96,14 +96,37 @@ export const modules: LearnModule[] = [
       {
         heading: "Vì dân — Nhà nước tồn tại để làm gì?",
         body: [
-          "Nhà nước tồn tại để phục vụ nhân dân. Mọi đường lối, chính sách phải hướng đến quyền lợi của nhân dân, chăm lo những nhu cầu thiết yếu như ăn, mặc, ở, học hành. Nhà nước vì dân phải trong sạch, không có bất kỳ đặc quyền, đặc lợi nào.",
+          "Nhà nước tồn tại để phục vụ nhân dân. Mọi đường lối, chính sách phải hướng đến quyền lợi của nhân dân. Nhà nước vì dân phải trong sạch, không có bất kỳ đặc quyền, đặc lợi nào.",
         ],
+        quote:
+          "Phải làm cho dân có ăn, phải làm cho dân có mặc, phải làm cho dân có chỗ ở, và phải làm cho dân được học hành.",
+      },
+      {
+        heading: "Ba thành tố khác nhau ở đâu?",
+        body: [
+          "Cả ba đều hướng tới nhân dân, nhưng mỗi thành tố nhấn mạnh một phương diện khác nhau — trả lời một câu hỏi khác nhau:",
+        ],
+        list: [
+          "Của dân — nhấn mạnh CHỦ THỂ của quyền lực: Ai là chủ?",
+          "Do dân — nhấn mạnh HÌNH THÀNH & THỰC HIỆN quyền làm chủ: Ai lập nên, ai làm chủ?",
+          "Vì dân — nhấn mạnh MỤC TIÊU hoạt động: Nhà nước hoạt động vì ai?",
+        ],
+      },
+      {
+        heading: "Ba thành tố liên hệ với nhau thế nào?",
+        body: [
+          "Ba thành tố không đứng riêng rẽ mà tạo thành một chỉnh thể thống nhất. Vì nhân dân là chủ (của dân) nên nhân dân lập nên và làm chủ Nhà nước (do dân); và vì thế quyền lực phải được dùng để phục vụ nhân dân (vì dân).",
+          "Nếu chỉ có “của dân” mà thiếu “do dân”, nhân dân mới là chủ về vị trí mà chưa thực hiện được quyền làm chủ. Nếu có “do dân” mà thiếu “vì dân”, quyền lực được thực hiện nhưng chưa rõ mục tiêu phục vụ. Nếu có “vì dân” mà thiếu “của dân, do dân” thì mục tiêu phục vụ lại thiếu cơ sở về chủ thể và quyền làm chủ.",
+        ],
+        quote:
+          "Nhân dân là chủ → Nhân dân làm chủ → Quyền lực được sử dụng vì nhân dân.",
       },
     ],
     takeaways: [
-      "CỦA DÂN = nguồn gốc quyền lực (chủ thể).",
-      "DO DÂN = cách thức hình thành và thực hiện (nguồn gốc + tham gia).",
-      "VÌ DÂN = mục đích sử dụng quyền lực (mục tiêu).",
+      "CỦA DÂN = chủ thể (nhân dân là chủ).",
+      "DO DÂN = dân là chủ + dân làm chủ (thực hiện quyền làm chủ).",
+      "VÌ DÂN = mục tiêu (lấy lợi ích chính đáng của nhân dân).",
+      "Ba thành tố khác nhau về nhấn mạnh nhưng không thể tách rời.",
     ],
   },
   {
@@ -220,11 +243,24 @@ export const modules: LearnModule[] = [
         quote:
           "Đảng lãnh đạo → Nhà nước thể chế hóa → Nhân dân tham gia & kiểm soát → Phục vụ lợi ích nhân dân.",
       },
+      {
+        heading: "Liên hệ thực tiễn",
+        body: [
+          "Tư tưởng “của dân – do dân – vì dân” không chỉ là lý thuyết mà gắn với trách nhiệm của từng chủ thể:",
+        ],
+        list: [
+          "Nhân dân: là chủ thể quyền lực — thực hiện quyền và nghĩa vụ công dân, tham gia đời sống xã hội và giám sát, kiểm soát quyền lực Nhà nước.",
+          "Nhà nước: hoạt động trong khuôn khổ pháp luật, bảo vệ quyền con người và quyền công dân, chịu sự kiểm soát, lấy lợi ích chính đáng của nhân dân làm mục tiêu.",
+          "Cán bộ, công chức: có đạo đức, bản lĩnh, năng lực và trách nhiệm; không biến quyền lực thành công cụ phục vụ lợi ích cá nhân.",
+          "Sinh viên: hiểu và thực hiện quyền, nghĩa vụ công dân; chấp hành pháp luật; có trách nhiệm với tập thể, cộng đồng; tham gia hoạt động xã hội phù hợp và tôn trọng quyền, lợi ích của người khác.",
+        ],
+      },
     ],
     takeaways: [
       "Hoàn thiện pháp luật gắn với thi hành nghiêm minh.",
       "Kiểm soát quyền lực và tăng trách nhiệm giải trình.",
       "Xây dựng cán bộ có đạo đức, năng lực, trách nhiệm.",
+      "Sinh viên vận dụng: sống, học tập và hành động theo tinh thần “dân là chủ”.",
     ],
   },
 ];

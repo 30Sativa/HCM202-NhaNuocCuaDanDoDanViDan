@@ -74,6 +74,33 @@ export const knowledge: KnowledgeEntry[] = [
     keywords: ["kiểm soát", "tha hóa", "tham ô", "lãng phí", "quan liêu", "cán bộ", "trong sạch"],
   },
   {
+    id: "moi-lien-he-ba-thanh-to",
+    title: "Mối liên hệ giữa của dân – do dân – vì dân",
+    summary:
+      "Ba thành tố khác nhau về phương diện nhấn mạnh nhưng thống nhất, không thể tách rời.",
+    keyPoints: [
+      "Của dân nhấn mạnh chủ thể (ai là chủ?)",
+      "Do dân nhấn mạnh hình thành & thực hiện quyền làm chủ (ai lập nên, ai làm chủ?)",
+      "Vì dân nhấn mạnh mục tiêu (hoạt động vì ai?)",
+      "Logic: nhân dân là chủ → nhân dân làm chủ → quyền lực dùng vì nhân dân",
+      "Thiếu một thành tố thì hai thành tố còn lại mất cơ sở hoặc mất mục tiêu",
+    ],
+    keywords: ["mối liên hệ", "khác nhau", "liên hệ", "thống nhất", "ba thành tố", "chỉnh thể"],
+  },
+  {
+    id: "van-dung-sinh-vien",
+    title: "Liên hệ thực tiễn & vận dụng cho sinh viên",
+    summary:
+      "Trách nhiệm của nhân dân, Nhà nước, cán bộ và sinh viên trong tư tưởng của dân – do dân – vì dân.",
+    keyPoints: [
+      "Nhân dân: thực hiện quyền, nghĩa vụ công dân, tham gia và giám sát quyền lực",
+      "Nhà nước: hoạt động theo pháp luật, bảo vệ quyền con người, lấy lợi ích nhân dân làm mục tiêu",
+      "Cán bộ: đạo đức, năng lực, trách nhiệm; không vụ lợi cá nhân",
+      "Sinh viên: hiểu và thực hiện quyền – nghĩa vụ công dân, chấp hành pháp luật, có trách nhiệm với cộng đồng, tham gia hoạt động xã hội, tôn trọng quyền lợi người khác",
+    ],
+    keywords: ["vận dụng", "liên hệ thực tiễn", "sinh viên", "trách nhiệm", "công dân"],
+  },
+  {
     id: "ban-chat-nha-nuoc",
     title: "Bản chất Nhà nước",
     summary:
