@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import ConceptCards from "@/components/ConceptCards";
 import ConceptMap from "@/components/ConceptMap";
 import PowerFlow from "@/components/PowerFlow";
+import KnowledgeGraph from "@/components/KnowledgeGraph";
 import Reveal from "@/components/Reveal";
 import TeamCarousel from "@/components/TeamCarousel";
 import Timeline from "@/components/Timeline";
@@ -45,23 +46,13 @@ export default function HomePage() {
       </section>
 
       {/* Concept cards */}
-      <section className="bg-paper-2/30 py-20 md:py-28">
+      <section id="khai-niem" className="scroll-mt-24 bg-paper-2/30 py-20 md:py-28">
         <div className="mx-auto max-w-content px-5 md:px-8">
           <Reveal>
-            <div className="flex items-end justify-between gap-4">
-              <div>
-                <span className="kicker">Của dân · Do dân · Vì dân</span>
-                <h2 className="mt-4 font-serif text-4xl font-bold text-ink md:text-5xl">
-                  Ba chữ, một chỉnh thể
-                </h2>
-              </div>
-              <Link
-                href="/concepts"
-                className="hidden shrink-0 font-mono text-xs uppercase tracking-wider text-primary hover:underline md:inline"
-              >
-                Sơ đồ đầy đủ →
-              </Link>
-            </div>
+            <span className="kicker">Của dân · Do dân · Vì dân</span>
+            <h2 className="mt-4 font-serif text-4xl font-bold text-ink md:text-5xl">
+              Ba chữ, một chỉnh thể
+            </h2>
           </Reveal>
           <div className="mt-12">
             <ConceptCards />
@@ -93,6 +84,21 @@ export default function HomePage() {
             <PowerFlow />
           </div>
         </div>
+      </section>
+
+      {/* Knowledge Graph */}
+      <section className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-28">
+        <Reveal>
+          <span className="kicker">Knowledge Graph</span>
+          <h2 className="mt-3 font-serif text-4xl font-bold text-ink md:text-5xl">
+            Toàn cảnh hệ thống
+          </h2>
+        </Reveal>
+        <Reveal>
+          <div className="mt-10">
+            <KnowledgeGraph />
+          </div>
+        </Reveal>
       </section>
 
       {/* Modules preview */}

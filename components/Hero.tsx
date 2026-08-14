@@ -73,7 +73,7 @@ export default function Hero() {
             Bắt đầu khám phá <ArrowRight size={16} />
           </Link>
           <Link
-            href="/concepts"
+            href="/#khai-niem"
             className="inline-flex items-center gap-2 rounded-full border border-paper/50 px-6 py-3 font-mono text-sm uppercase tracking-widest text-paper transition-all duration-200 hover:-translate-y-0.5 hover:border-paper hover:gap-3 active:translate-y-0 active:scale-[0.97]"
           >
             Sơ đồ khái niệm
