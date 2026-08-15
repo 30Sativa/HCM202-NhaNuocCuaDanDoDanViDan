@@ -20,80 +20,80 @@ export type LearnModule = {
 
 export const modules: LearnModule[] = [
   {
-    slug: "nha-nuoc-dan-chu",
+    slug: "nha-nuoc-cua-dan",
     index: "01",
-    title: "Nhà nước dân chủ",
-    subtitle: "Dân chủ là bản chất của Nhà nước",
-    question: "Vì sao dân chủ là gốc rễ?",
+    title: "Nhà nước của dân",
+    subtitle: "Nhân dân là chủ thể của quyền lực",
+    question: "Ai là chủ?",
     color: "text-primary",
     summary:
-      "Nhà nước của dân, do dân, vì dân trước hết phải là một Nhà nước dân chủ — nơi nhân dân là chủ thể của quyền lực.",
+      "Mọi quyền lực nhà nước thuộc về nhân dân — nhân dân là chủ thể tối cao của quyền lực nhà nước.",
     sections: [
       {
-        part: "Dân chủ",
-        heading: "Dân chủ nghĩa là gì?",
-        body: [
-          "Dân chủ có nghĩa cơ bản là nhân dân là chủ thể của quyền lực. Nhưng dân chủ không chỉ nằm trên giấy tờ — nó phải được thể hiện bằng những cơ chế cụ thể.",
-        ],
-      },
-      {
-        heading: "Dân chủ được thể hiện bằng gì?",
-        body: ["Dân chủ vừa là quyền của nhân dân, vừa là phương thức để nhân dân thực hiện quyền làm chủ:"],
-        list: [
-          "Cơ chế bầu cử",
-          "Quyền tham gia quản lý nhà nước",
-          "Quyền đóng góp ý kiến",
-          "Quyền kiểm tra, giám sát",
-          "Quyền khiếu nại, tố cáo theo quy định pháp luật",
-          "Quyền tham gia xây dựng chính sách, pháp luật",
-          "Trách nhiệm thực hiện nghĩa vụ công dân",
-        ],
-      },
-      {
-        part: "Bản chất Nhà nước",
+        part: "Quyền lực thuộc về nhân dân",
         heading: "Nhà nước thuộc về nhân dân",
         body: [
-          "Nhà nước Việt Nam ra đời là kết quả của cuộc đấu tranh lâu dài, gian khổ của nhiều thế hệ người Việt Nam. Vì vậy, Nhà nước không phải của riêng một giai cấp hay tầng lớp nào mà thuộc về nhân dân — bảo vệ lợi ích của nhân dân và lấy lợi ích của nhân dân làm cơ bản.",
+          "Trong tư tưởng Hồ Chí Minh, Nhà nước phải gắn bó chặt chẽ với nhân dân. Nhà nước Việt Nam ra đời là kết quả của cuộc đấu tranh lâu dài, gian khổ của nhiều thế hệ người Việt Nam.",
+          "Vì vậy, Nhà nước không phải của riêng một giai cấp hay tầng lớp nào mà thuộc về nhân dân — bảo vệ lợi ích của nhân dân và lấy lợi ích của nhân dân làm cơ bản.",
         ],
       },
       {
-        heading: "Bản chất Nhà nước",
+        heading: "Quyền lực là “thừa ủy quyền” của nhân dân",
         body: [
-          "Nhà nước Việt Nam mang bản chất giai cấp công nhân, gắn với tính nhân dân và tính dân tộc, đặt dưới sự lãnh đạo của Đảng và định hướng phát triển theo con đường xã hội chủ nghĩa. Ba yếu tố này thống nhất chứ không tách rời.",
+          "Nhân dân là chủ thể của quyền lực nhà nước. Quyền lực nhà nước không phải quyền lực tự thân của bộ máy mà có nguồn gốc từ nhân dân.",
+          "Nhân dân là chủ thể tối cao của quyền lực nên có quyền kiểm soát, phê bình Nhà nước; có quyền bãi miễn những đại biểu mình đã bầu ra và có quyền đối với những thiết chế quyền lực do mình lập nên. Pháp luật dân chủ là công cụ để nhân dân thực hiện quyền lực.",
         ],
-        quote:
-          "Bản chất giai cấp công nhân + Tính nhân dân + Tính dân tộc → tạo thành bản chất thống nhất của Nhà nước Việt Nam.",
+        quote: "Quyền lực nhà nước là “thừa ủy quyền” của nhân dân.",
+      },
+      {
+        part: "Bản chất của “của dân”",
+        heading: "“Của dân” nhấn mạnh điều gì?",
+        body: [
+          "“Của dân” nhấn mạnh vị trí của nhân dân đối với quyền lực nhà nước. Nhân dân không phải chỉ là đối tượng chịu sự quản lý của Nhà nước, mà là chủ thể tối cao của quyền lực nhà nước.",
+          "Câu hỏi: Ai là chủ thể của quyền lực nhà nước? → Nhân dân.",
+        ],
+        quote: "CỦA DÂN = NHÂN DÂN LÀ CHỦ.",
       },
     ],
     takeaways: [
-      "Nhân dân là chủ thể của quyền lực.",
-      "Dân chủ phải có cơ chế thực thi, không chỉ trên giấy.",
-      "Bản chất Nhà nước là sự thống nhất giai cấp – nhân dân – dân tộc.",
+      "Nhân dân là chủ thể tối cao của quyền lực nhà nước.",
+      "Quyền lực có nguồn gốc từ nhân dân (thừa ủy quyền).",
+      "Trao quyền không có nghĩa là mất quyền — nhân dân kiểm soát quyền lực.",
     ],
   },
   {
-    slug: "cua-dan-do-dan-vi-dan",
+    slug: "nha-nuoc-do-dan",
     index: "02",
-    title: "Của dân – Do dân – Vì dân",
-    subtitle: "Quyền lực bắt nguồn từ đâu?",
-    question: "Ba chữ, một chỉnh thể",
+    title: "Nhà nước do dân",
+    subtitle: "Dân là chủ và dân làm chủ",
+    question: "Ai lập nên & ai làm chủ?",
     color: "text-primary",
     summary:
-      "Ba khái niệm của dân – do dân – vì dân tạo thành một logic thống nhất về nguồn gốc, chủ thể và mục tiêu của quyền lực nhà nước.",
+      "Nhà nước do nhân dân lập nên; nhân dân vừa là chủ, vừa làm chủ và tham gia thực hiện quyền lực.",
     sections: [
       {
-        part: "Ba thành tố",
-        heading: "Của dân — Ai là chủ?",
+        part: "Do nhân dân lập nên",
+        heading: "Nhà nước do nhân dân lập nên",
         body: [
-          "Mọi quyền lực nhà nước thuộc về nhân dân. Nhân dân là chủ thể tối cao, thực hiện quyền làm chủ qua dân chủ trực tiếp và đại diện, bầu ra đại diện, kiểm tra giám sát, phê bình và bãi miễn theo quy định.",
+          "“Do nhân dân” nhấn mạnh vai trò chủ động của nhân dân trong việc hình thành Nhà nước và thực hiện quyền làm chủ.",
+          "Nhân dân không chỉ là chủ thể của quyền lực mà còn là người tham gia vào quá trình hình thành và thực hiện quyền lực đó.",
         ],
-        quote: "Trao quyền không có nghĩa là mất quyền.",
+        quote:
+          "Nhà nước do nhân dân lập nên; Nhà nước do nhân dân làm chủ và dân là chủ.",
       },
       {
-        heading: "Do dân — Nhà nước từ đâu mà có?",
+        part: "Dân là chủ & dân làm chủ",
+        heading: "Phân biệt “dân là chủ” và “dân làm chủ”",
         body: [
-          "Nhà nước do nhân dân lập nên. “Dân là chủ” xác định vị trí, địa vị; “dân làm chủ” nhấn mạnh quyền lợi và nghĩa vụ. Nhân dân tham gia xây dựng, vận hành và kiểm soát Nhà nước.",
+          "“Dân là chủ” khẳng định vị thế của nhân dân đối với quyền lực nhà nước → nhân dân là người chủ.",
+          "“Dân làm chủ” khẳng định quyền lợi và nghĩa vụ của nhân dân với tư cách người chủ → nhân dân thực hiện quyền làm chủ của mình.",
+          "Vì vậy, “do nhân dân” không chỉ là Nhà nước do dân lập nên, mà còn là nhân dân thực hiện quyền và nghĩa vụ của người chủ.",
         ],
+        quote: "DO DÂN = DÂN LÀ CHỦ + DÂN LÀM CHỦ.",
+      },
+      {
+        heading: "Nhân dân tham gia bằng cách nào?",
+        body: ["Nhân dân thực hiện quyền làm chủ qua nhiều hình thức:"],
         list: [
           "Bầu cử",
           "Tham gia quản lý nhà nước và xã hội",
@@ -103,16 +103,61 @@ export const modules: LearnModule[] = [
           "Thực hiện quyền và nghĩa vụ công dân",
         ],
       },
+    ],
+    takeaways: [
+      "Nhà nước do nhân dân lập nên.",
+      "“Dân là chủ” xác định vị thế; “dân làm chủ” là quyền lợi và nghĩa vụ.",
+      "Nhân dân tham gia và thực hiện quyền làm chủ trong thực tế.",
+    ],
+  },
+  {
+    slug: "nha-nuoc-vi-dan",
+    index: "03",
+    title: "Nhà nước vì dân",
+    subtitle: "Lấy lợi ích nhân dân làm mục tiêu",
+    question: "Vì ai?",
+    color: "text-primary",
+    summary:
+      "Nhà nước tồn tại để phục vụ nhân dân, lấy lợi ích chính đáng của nhân dân làm mục tiêu và thước đo.",
+    sections: [
       {
-        heading: "Vì dân — Nhà nước tồn tại để làm gì?",
+        part: "Lợi ích nhân dân là mục tiêu",
+        heading: "“Vì dân” là mục tiêu hoạt động",
         body: [
-          "Nhà nước tồn tại để phục vụ nhân dân. Mọi đường lối, chính sách phải hướng đến quyền lợi của nhân dân. Nhà nước vì dân phải trong sạch, không có bất kỳ đặc quyền, đặc lợi nào.",
+          "“Vì nhân dân” tập trung vào mục tiêu hoạt động của Nhà nước: lấy lợi ích chính đáng của nhân dân làm mục tiêu. Mọi đường lối, chính sách chỉ nhằm mang lại quyền lợi cho nhân dân.",
+          "Câu hỏi: Nhà nước hoạt động vì ai và nhằm mục tiêu gì? → Vì nhân dân, vì lợi ích chính đáng của nhân dân.",
+        ],
+        quote:
+          "Một nhà nước hoàn toàn trong sạch, không có bất kì một đặc quyền, đặc lợi nào.",
+      },
+      {
+        part: "“Vì dân” trong đời sống",
+        heading: "Thể hiện rất cụ thể",
+        body: [
+          "Nhà nước vì dân phải hướng toàn bộ hoạt động của mình tới việc bảo đảm quyền lợi và lợi ích chính đáng của nhân dân, phục vụ đời sống nhân dân, không để quyền lực biến thành đặc quyền, đặc lợi.",
         ],
         quote:
           "Phải làm cho dân có ăn, phải làm cho dân có mặc, phải làm cho dân có chỗ ở, và phải làm cho dân được học hành.",
       },
+    ],
+    takeaways: [
+      "VÌ DÂN = lấy lợi ích chính đáng của nhân dân làm mục tiêu.",
+      "Nhà nước vì dân phải trong sạch, không đặc quyền đặc lợi.",
+      "Chăm lo đời sống: ăn, mặc, ở, học hành.",
+    ],
+  },
+  {
+    slug: "moi-quan-he-ba-thanh-to",
+    index: "04",
+    title: "Mối quan hệ ba thành tố",
+    subtitle: "Khác nhau & liên hệ thống nhất",
+    question: "Ba thành tố gắn với nhau thế nào?",
+    color: "text-primary",
+    summary:
+      "Của dân, do dân, vì dân khác nhau về phương diện nhấn mạnh nhưng thống nhất, không thể tách rời.",
+    sections: [
       {
-        part: "Khác nhau & liên hệ",
+        part: "Khác nhau ở đâu",
         heading: "Ba thành tố khác nhau ở đâu?",
         body: [
           "Cả ba đều hướng tới nhân dân, nhưng mỗi thành tố nhấn mạnh một phương diện khác nhau — trả lời một câu hỏi khác nhau:",
@@ -122,8 +167,10 @@ export const modules: LearnModule[] = [
           "Do dân — nhấn mạnh HÌNH THÀNH & THỰC HIỆN quyền làm chủ: Ai lập nên, ai làm chủ?",
           "Vì dân — nhấn mạnh MỤC TIÊU hoạt động: Nhà nước hoạt động vì ai?",
         ],
+        quote: "CỦA DÂN = CHỦ THỂ · DO DÂN = THỰC HIỆN QUYỀN LÀM CHỦ · VÌ DÂN = MỤC TIÊU.",
       },
       {
+        part: "Liên hệ thống nhất",
         heading: "Ba thành tố liên hệ với nhau thế nào?",
         body: [
           "Ba thành tố không đứng riêng rẽ mà tạo thành một chỉnh thể thống nhất. Vì nhân dân là chủ (của dân) nên nhân dân lập nên và làm chủ Nhà nước (do dân); và vì thế quyền lực phải được dùng để phục vụ nhân dân (vì dân).",
@@ -137,7 +184,7 @@ export const modules: LearnModule[] = [
         heading: "Quan hệ giữa “Của dân” và “Do dân”",
         body: [
           "“Của dân” khẳng định: dân là chủ. “Do dân” khẳng định: dân làm chủ. Hai nội dung này không thể tách rời.",
-          "Nếu nhân dân là chủ thì nhân dân phải được thực hiện quyền làm chủ của mình. Nếu nhân dân làm chủ thì Nhà nước phải tạo điều kiện và cơ chế để quyền làm chủ đó được thực hiện. Đây chính là mối nối giữa “của dân” và “do dân”.",
+          "Nếu nhân dân là chủ thì phải được thực hiện quyền làm chủ; nếu nhân dân làm chủ thì Nhà nước phải tạo điều kiện và cơ chế để quyền làm chủ được thực hiện. Đây là mối nối giữa “của dân” và “do dân”.",
         ],
         quote: "Dân là chủ → Dân làm chủ.",
       },
@@ -152,49 +199,45 @@ export const modules: LearnModule[] = [
       {
         heading: "Quan hệ giữa “Của dân” và “Vì dân”",
         body: [
-          "Nhà nước thuộc về nhân dân thì Nhà nước phải bảo vệ lợi ích của nhân dân, lấy lợi ích nhân dân làm cơ bản. Nhà nước thuộc về nhân dân thì mục tiêu hoạt động phải hướng đến nhân dân.",
+          "Nhà nước thuộc về nhân dân thì Nhà nước phải bảo vệ lợi ích của nhân dân, lấy lợi ích nhân dân làm cơ bản; mục tiêu hoạt động phải hướng đến nhân dân.",
         ],
         quote: "Của dân → Vì dân.",
       },
     ],
     takeaways: [
-      "CỦA DÂN = chủ thể (nhân dân là chủ).",
-      "DO DÂN = dân là chủ + dân làm chủ (thực hiện quyền làm chủ).",
-      "VÌ DÂN = mục tiêu (lấy lợi ích chính đáng của nhân dân).",
-      "Của dân ↔ Do dân: Dân là chủ → Dân làm chủ.",
-      "Do dân ↔ Vì dân: Dân làm chủ → Quyền lực dùng vì dân.",
-      "Của dân ↔ Vì dân: Thuộc về dân → Mục tiêu hướng đến dân.",
+      "Khác nhau: chủ thể / thực hiện quyền làm chủ / mục tiêu.",
+      "Thống nhất: nhân dân là chủ → làm chủ → quyền lực vì nhân dân.",
+      "Của↔Do · Do↔Vì · Của↔Vì — bổ sung cho nhau, không tách rời.",
     ],
   },
   {
-    slug: "nha-nuoc-phap-quyen",
-    index: "03",
-    title: "Nhà nước pháp quyền",
-    subtitle: "Thượng tôn pháp luật & pháp quyền nhân nghĩa",
-    question: "Quyền lực bị ràng buộc bởi điều gì?",
+    slug: "phap-quyen-kiem-soat",
+    index: "05",
+    title: "Pháp quyền & kiểm soát quyền lực",
+    subtitle: "Pháp luật, kiểm soát & trong sạch",
+    question: "Làm sao quyền lực không tha hóa?",
     color: "text-primary",
     summary:
-      "Nhà nước hợp hiến, hợp pháp, quản lý xã hội bằng pháp luật — và chính Nhà nước cũng phải tuân thủ pháp luật.",
+      "Muốn thực sự của dân, do dân, vì dân, quyền lực phải được kiểm soát bằng pháp luật và Nhà nước phải trong sạch, vững mạnh.",
     sections: [
       {
-        part: "Nhà nước pháp quyền",
-        heading: "Hợp hiến, hợp pháp",
+        part: "Kiểm soát quyền lực",
+        heading: "Từ “của – do – vì” đến kiểm soát",
         body: [
-          "Nhà nước Việt Nam Dân chủ Cộng hòa ra đời 02/09/1945. Ngày 06/01/1946 Tổng tuyển cử bầu Quốc hội; ngày 02/03/1946 Quốc hội khóa I họp phiên đầu tiên. Đây là nỗ lực xây dựng Nhà nước có cơ sở pháp lý và chính danh.",
+          "Muốn Nhà nước thực sự của dân, do dân, vì dân thì quyền lực nhà nước phải được kiểm soát. Nhân dân là chủ thể tối cao nên nhân dân có quyền kiểm soát quyền lực nhà nước.",
         ],
+        list: [
+          "Của dân → Nhân dân là chủ → Nhân dân kiểm soát quyền lực",
+          "Do dân → Nhân dân làm chủ → Nhân dân tham gia, kiểm tra, giám sát",
+          "Vì dân → Quyền lực dùng đúng mục tiêu → Phục vụ nhân dân",
+        ],
+        quote: "Kiểm soát quyền lực nhà nước là tất yếu.",
       },
       {
-        heading: "Thượng tôn pháp luật",
-        body: [
-          "Nhà nước quản lý đất nước bằng pháp luật và làm cho pháp luật có hiệu lực thực tế. Không chỉ xây dựng mà phải tổ chức thực hiện pháp luật. Đặc biệt: Nhà nước và cán bộ, công chức cũng phải tuân thủ pháp luật.",
-        ],
-        quote:
-          "Người có quyền lực càng lớn thì càng phải chịu sự ràng buộc của pháp luật.",
-      },
-      {
+        part: "Pháp luật – cơ sở bảo đảm",
         heading: "Vai trò kép của pháp luật",
         body: [
-          "Pháp luật là cơ sở để bảo đảm “của dân – do dân – vì dân”. Nó có vai trò kép: vừa là công cụ để Nhà nước quản lý xã hội, vừa là công cụ để nhân dân làm chủ, kiểm tra và giám sát quyền lực nhà nước.",
+          "Pháp luật giữ vai trò quan trọng để bảo đảm quyền lực được tổ chức và thực hiện đúng. Nó có vai trò kép: vừa là công cụ để Nhà nước quản lý xã hội, vừa là công cụ để nhân dân làm chủ, kiểm tra, giám sát quyền lực nhà nước.",
         ],
         list: [
           "Hoàn thiện hệ thống pháp luật",
@@ -204,84 +247,78 @@ export const modules: LearnModule[] = [
         ],
       },
       {
+        part: "Trong sạch, vững mạnh",
+        heading: "Điều kiện để “vì dân”",
+        body: [
+          "Muốn Nhà nước thực sự vì dân, Nhà nước phải trong sạch và vững mạnh: hoàn thiện và thi hành pháp luật, bảo đảm quyền con người và quyền công dân, kiểm soát quyền lực, xây dựng đội ngũ cán bộ có phẩm chất và năng lực.",
+          "Một Nhà nước vì dân phải là Nhà nước trong sạch, không có đặc quyền, đặc lợi. Những biểu hiện cần tập trung chống:",
+        ],
+        list: [
+          "Tham ô",
+          "Lãng phí",
+          "Quan liêu",
+          "Tư túng, chia rẽ, kiêu ngạo",
+          "Hách dịch, cửa quyền",
+          "Đặc quyền, đặc lợi",
+        ],
+      },
+      {
+        part: "Hợp hiến, hợp pháp",
+        heading: "Hợp hiến, hợp pháp & thượng tôn pháp luật",
+        body: [
+          "Nhà nước Việt Nam Dân chủ Cộng hòa ra đời 02/09/1945. Ngày 06/01/1946, Tổng tuyển cử bầu Quốc hội — cơ quan quyền lực của nhân dân. Ngày 02/03/1946, Quốc hội khóa I họp phiên đầu tiên, lập ra bộ máy và các chức vụ chính thức của Nhà nước.",
+          "Hồ Chí Minh chú trọng xây dựng hệ thống pháp luật dân chủ, hiện đại; đưa pháp luật vào cuộc sống; bảo đảm pháp luật được thi hành; có cơ chế giám sát và đề cao tính nghiêm minh của pháp luật.",
+        ],
+        quote:
+          "Người có quyền lực càng lớn thì càng phải chịu sự ràng buộc của pháp luật.",
+      },
+      {
         part: "Pháp quyền nhân nghĩa",
         heading: "Pháp quyền nhân nghĩa",
         body: [
-          "Nét đặc sắc trong tư tưởng Hồ Chí Minh: kết hợp pháp luật với tính nhân văn. Pháp luật phải nghiêm minh nhưng không vô nhân đạo, phải hướng con người đến điều tốt.",
+          "Nét đặc sắc trong tư tưởng Hồ Chí Minh: pháp luật có tính nhân văn và khuyến thiện — không chỉ quản lý mà còn bảo vệ con người và phục vụ những giá trị tốt đẹp của xã hội.",
         ],
         list: [
-          "Ghi nhận và bảo vệ quyền con người",
-          "Bảo đảm tính công bằng",
-          "Áp dụng nghiêm minh nhưng khách quan",
-          "Khuyến thiện: giáo dục, cảm hóa, thức tỉnh con người",
+          "Nhân văn: ghi nhận, bảo vệ quyền con người; nghiêm minh nhưng khách quan, công bằng; chống đối xử dã man",
+          "Khuyến thiện: bảo vệ cái đúng, cái tốt; giáo dục, cảm hóa, thức tỉnh con người",
         ],
-      },
-    ],
-    takeaways: [
-      "Nhà nước hợp hiến, hợp pháp, quản lý bằng pháp luật.",
-      "Nhà nước cũng phải tuân thủ pháp luật.",
-      "Pháp quyền nhân nghĩa = nghiêm minh + nhân văn + khuyến thiện.",
-    ],
-  },
-  {
-    slug: "nha-nuoc-trong-sach",
-    index: "04",
-    title: "Nhà nước trong sạch, vững mạnh",
-    subtitle: "Kiểm soát quyền lực & phòng chống tiêu cực",
-    question: "Làm sao để quyền lực không tha hóa?",
-    color: "text-primary",
-    summary:
-      "Có quyền lực thì phải có kiểm soát quyền lực. Nhân dân là chủ thể tối cao nên phải có quyền kiểm soát Nhà nước.",
-    sections: [
-      {
-        part: "Kiểm soát quyền lực",
-        heading: "Vì sao phải kiểm soát quyền lực?",
-        body: [
-          "Kiểm soát quyền lực là tất yếu nhằm giữ vững bản chất Nhà nước, bảo đảm hiệu quả hoạt động và phòng ngừa sự tha hóa quyền lực.",
-        ],
-        quote:
-          "Quyền lực → lạm dụng → tha hóa → đặc quyền, đặc lợi → xa rời nhân dân.",
-      },
-      {
-        heading: "Các biểu hiện tiêu cực cần phòng chống",
-        body: ["Slide xác định những biểu hiện đi ngược lại bản chất Nhà nước vì dân:"],
-        list: [
-          "Tham ô — chiếm đoạt tài sản của Nhà nước và nhân dân",
-          "Lãng phí — sử dụng nguồn lực công không hiệu quả",
-          "Quan liêu — xa rời thực tế, xa rời nhân dân",
-          "Tư túng, chia rẽ, kiêu ngạo",
-          "Hách dịch, cửa quyền",
-          "Đặc quyền, đặc lợi — dùng quyền lực tạo lợi ích riêng",
-        ],
-      },
-      {
-        part: "Xây dựng cán bộ",
-        heading: "Xây dựng đội ngũ cán bộ",
-        body: [
-          "Muốn xây dựng Nhà nước tốt phải xây dựng đội ngũ cán bộ tốt: có phẩm chất đạo đức, năng lực chuyên môn, trách nhiệm, gắn bó với nhân dân, tôn trọng pháp luật và có tinh thần phục vụ nhân dân.",
-        ],
+        quote: "Pháp luật nghiêm minh nhưng nhân văn, khuyến thiện.",
       },
     ],
     takeaways: [
       "Có quyền lực → phải có kiểm soát quyền lực.",
-      "Tham ô, lãng phí, quan liêu, đặc quyền là biểu hiện xa dân.",
-      "Cán bộ tốt là điều kiện của Nhà nước trong sạch.",
+      "Pháp luật có vai trò kép: quản lý xã hội + để nhân dân kiểm soát.",
+      "Nhà nước trong sạch, vững mạnh là điều kiện để vì dân.",
+      "Pháp quyền nhân nghĩa: nghiêm minh + nhân văn + khuyến thiện.",
     ],
   },
   {
-    slug: "van-dung-tu-tuong",
-    index: "05",
-    title: "Vận dụng tư tưởng",
-    subtitle: "Xây dựng Nhà nước hiện nay",
-    question: "Từ tư tưởng đến thực tiễn",
+    slug: "lien-he-van-dung",
+    index: "06",
+    title: "Liên hệ thực tiễn & vận dụng",
+    subtitle: "Từ tư tưởng đến hành động",
+    question: "Vận dụng thế nào?",
     color: "text-primary",
     summary:
-      "Vận dụng tư tưởng Hồ Chí Minh vào xây dựng Nhà nước trong sạch, vững mạnh, pháp quyền và phục vụ nhân dân.",
+      "Tư tưởng của dân – do dân – vì dân gắn với trách nhiệm của từng chủ thể và định hướng xây dựng Nhà nước hiện nay.",
     sections: [
       {
+        part: "Liên hệ thực tiễn",
+        heading: "Trách nhiệm của từng chủ thể",
+        body: [
+          "Tư tưởng “của dân – do dân – vì dân” không chỉ là lý thuyết mà gắn với trách nhiệm của từng chủ thể:",
+        ],
+        list: [
+          "Nhân dân: là chủ thể quyền lực — thực hiện quyền và nghĩa vụ công dân, tham gia đời sống xã hội và kiểm soát quyền lực nhà nước.",
+          "Nhà nước: hoạt động trong khuôn khổ pháp luật, bảo vệ quyền con người và quyền công dân, chịu sự kiểm soát, lấy lợi ích chính đáng của nhân dân làm mục tiêu.",
+          "Cán bộ, công chức: có đạo đức, bản lĩnh, trình độ, năng lực và trách nhiệm; không để quyền lực thành công cụ phục vụ lợi ích cá nhân.",
+          "Sinh viên: hiểu và thực hiện quyền, nghĩa vụ công dân; chấp hành pháp luật; có trách nhiệm với cộng đồng; tham gia hoạt động xã hội phù hợp và tôn trọng quyền, lợi ích của người khác.",
+        ],
+      },
+      {
         part: "Vận dụng hiện nay",
-        heading: "Năm phương hướng lớn",
-        body: ["Từ các slide, có thể hệ thống thành những phương hướng lớn sau:"],
+        heading: "Phương hướng xây dựng Nhà nước",
+        body: ["Vận dụng tư tưởng vào xây dựng Nhà nước hiện nay:"],
         list: [
           "Xây dựng Nhà nước thực sự trong sạch, vững mạnh",
           "Hoàn thiện hệ thống pháp luật gắn với tổ chức thi hành",
@@ -299,24 +336,19 @@ export const modules: LearnModule[] = [
           "Đảng lãnh đạo → Nhà nước thể chế hóa → Nhân dân tham gia & kiểm soát → Phục vụ lợi ích nhân dân.",
       },
       {
-        part: "Liên hệ thực tiễn",
-        heading: "Liên hệ thực tiễn",
+        part: "Kết luận",
+        heading: "Cô đọng toàn bộ tư tưởng",
         body: [
-          "Tư tưởng “của dân – do dân – vì dân” không chỉ là lý thuyết mà gắn với trách nhiệm của từng chủ thể:",
+          "Tư tưởng Hồ Chí Minh về Nhà nước của nhân dân, do nhân dân, vì nhân dân thể hiện sự thống nhất giữa chủ thể của quyền lực, việc thực hiện quyền làm chủ và mục tiêu của quyền lực nhà nước.",
+          "Ba thành tố khác nhau về nội dung nhấn mạnh, nhưng thống nhất về chủ thể và mục tiêu trung tâm là nhân dân — cùng thể hiện tư tưởng lấy nhân dân làm gốc.",
         ],
-        list: [
-          "Nhân dân: là chủ thể quyền lực — thực hiện quyền và nghĩa vụ công dân, tham gia đời sống xã hội và giám sát, kiểm soát quyền lực Nhà nước.",
-          "Nhà nước: hoạt động trong khuôn khổ pháp luật, bảo vệ quyền con người và quyền công dân, chịu sự kiểm soát, lấy lợi ích chính đáng của nhân dân làm mục tiêu.",
-          "Cán bộ, công chức: có đạo đức, bản lĩnh, năng lực và trách nhiệm; không biến quyền lực thành công cụ phục vụ lợi ích cá nhân.",
-          "Sinh viên: hiểu và thực hiện quyền, nghĩa vụ công dân; chấp hành pháp luật; có trách nhiệm với tập thể, cộng đồng; tham gia hoạt động xã hội phù hợp và tôn trọng quyền, lợi ích của người khác.",
-        ],
+        quote: "DÂN LÀ CHỦ → DÂN LÀM CHỦ → NHÀ NƯỚC VÌ DÂN.",
       },
     ],
     takeaways: [
-      "Hoàn thiện pháp luật gắn với thi hành nghiêm minh.",
-      "Kiểm soát quyền lực và tăng trách nhiệm giải trình.",
-      "Xây dựng cán bộ có đạo đức, năng lực, trách nhiệm.",
-      "Sinh viên vận dụng: sống, học tập và hành động theo tinh thần “dân là chủ”.",
+      "Nhân dân · Nhà nước · Cán bộ · Sinh viên — mỗi bên một trách nhiệm.",
+      "Vận dụng: trong sạch vững mạnh, hoàn thiện pháp luật, kiểm soát quyền lực.",
+      "Lấy nhân dân làm gốc trong xây dựng và tổ chức Nhà nước.",
     ],
   },
 ];

@@ -106,7 +106,7 @@ export default function HomePage() {
         <Reveal>
           <span className="kicker">Nội dung học tập</span>
           <h2 className="mt-4 font-serif text-4xl font-bold text-ink md:text-5xl">
-            Năm chặng của hành trình
+            Sáu chặng của hành trình
           </h2>
         </Reveal>
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

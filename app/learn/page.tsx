@@ -6,7 +6,7 @@ import { modules } from "@/data/modules";
 
 export const metadata = {
   title: "Học · Tư tưởng Hồ Chí Minh",
-  description: "Năm module về tư tưởng Hồ Chí Minh: từ Nhà nước dân chủ đến vận dụng.",
+  description: "Sáu module về tư tưởng Hồ Chí Minh: Nhà nước của dân, do dân, vì dân và vận dụng.",
 };
 
 export default function LearnPage() {
