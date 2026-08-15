@@ -86,8 +86,11 @@ export const knowledge: KnowledgeEntry[] = [
       "Vì dân nhấn mạnh mục tiêu (hoạt động vì ai?)",
       "Logic: nhân dân là chủ → nhân dân làm chủ → quyền lực dùng vì nhân dân",
       "Thiếu một thành tố thì hai thành tố còn lại mất cơ sở hoặc mất mục tiêu",
+      "Của dân ↔ Do dân: dân là chủ → dân làm chủ (không tách rời)",
+      "Do dân ↔ Vì dân: dân làm chủ → quyền lực phải được sử dụng vì dân",
+      "Của dân ↔ Vì dân: Nhà nước thuộc về dân → mục tiêu hướng đến dân",
     ],
-    keywords: ["mối liên hệ", "khác nhau", "liên hệ", "thống nhất", "ba thành tố", "chỉnh thể"],
+    keywords: ["mối liên hệ", "khác nhau", "liên hệ", "thống nhất", "ba thành tố", "chỉnh thể", "của dân do dân", "do dân vì dân"],
   },
   {
     id: "van-dung-sinh-vien",

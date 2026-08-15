@@ -127,12 +127,37 @@ export const modules: LearnModule[] = [
         quote:
           "Nhân dân là chủ → Nhân dân làm chủ → Quyền lực được sử dụng vì nhân dân.",
       },
+      {
+        heading: "Quan hệ giữa “Của dân” và “Do dân”",
+        body: [
+          "“Của dân” khẳng định: dân là chủ. “Do dân” khẳng định: dân làm chủ. Hai nội dung này không thể tách rời.",
+          "Nếu nhân dân là chủ thì nhân dân phải được thực hiện quyền làm chủ của mình. Nếu nhân dân làm chủ thì Nhà nước phải tạo điều kiện và cơ chế để quyền làm chủ đó được thực hiện. Đây chính là mối nối giữa “của dân” và “do dân”.",
+        ],
+        quote: "Dân là chủ → Dân làm chủ.",
+      },
+      {
+        heading: "Quan hệ giữa “Do dân” và “Vì dân”",
+        body: [
+          "Nhân dân lập nên Nhà nước và thực hiện quyền làm chủ không phải là mục đích cuối cùng. Quyền lực được hình thành và thực hiện phải hướng tới việc lấy lợi ích chính đáng của nhân dân làm mục tiêu.",
+          "“Do dân” nói về việc nhân dân thực hiện quyền làm chủ; “vì dân” nói về mục tiêu của việc sử dụng quyền lực đó.",
+        ],
+        quote: "Dân làm chủ → Quyền lực phải được sử dụng vì dân.",
+      },
+      {
+        heading: "Quan hệ giữa “Của dân” và “Vì dân”",
+        body: [
+          "Nhà nước thuộc về nhân dân thì Nhà nước phải bảo vệ lợi ích của nhân dân, lấy lợi ích nhân dân làm cơ bản. Nhà nước thuộc về nhân dân thì mục tiêu hoạt động phải hướng đến nhân dân.",
+        ],
+        quote: "Của dân → Vì dân.",
+      },
     ],
     takeaways: [
       "CỦA DÂN = chủ thể (nhân dân là chủ).",
       "DO DÂN = dân là chủ + dân làm chủ (thực hiện quyền làm chủ).",
       "VÌ DÂN = mục tiêu (lấy lợi ích chính đáng của nhân dân).",
-      "Ba thành tố khác nhau về nhấn mạnh nhưng không thể tách rời.",
+      "Của dân ↔ Do dân: Dân là chủ → Dân làm chủ.",
+      "Do dân ↔ Vì dân: Dân làm chủ → Quyền lực dùng vì dân.",
+      "Của dân ↔ Vì dân: Thuộc về dân → Mục tiêu hướng đến dân.",
     ],
   },
   {
