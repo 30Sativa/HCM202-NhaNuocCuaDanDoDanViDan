@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Briefcase, GraduationCap } from "lucide-react";
 import { team, initials } from "@/data/team";
 
-const AUTO_MS = 2500;
+const AUTO_MS = 1800;
 const len = team.length;
 
 // Khoảng cách vòng (wrap) từ index i tới thẻ đang active, trả về trong [-len/2, len/2].
@@ -81,7 +81,7 @@ export default function TeamCarousel() {
                 scale: s.scale,
                 opacity: s.opacity,
               }}
-              transition={{ type: "spring", stiffness: 220, damping: 22 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
             >
               <div
                 className={`flex h-80 flex-col items-center rounded-3xl border p-7 text-center shadow-xl backdrop-blur-sm ${
