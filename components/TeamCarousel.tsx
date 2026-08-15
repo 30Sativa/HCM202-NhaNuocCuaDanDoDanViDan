@@ -34,7 +34,6 @@ function styleFor(offset: number) {
 
 export default function TeamCarousel() {
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const go = useCallback((dir: 1 | -1) => {
@@ -42,21 +41,16 @@ export default function TeamCarousel() {
   }, []);
 
   useEffect(() => {
-    if (paused) return;
     timer.current = setInterval(() => setActive((a) => (a + 1) % len), AUTO_MS);
     return () => {
       if (timer.current) clearInterval(timer.current);
     };
-  }, [paused]);
+  }, []);
 
   const current = team[active];
 
   return (
-    <div
-      className="select-none"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
+    <div className="select-none">
       {/* Sân khấu 3D */}
       <div
         className="relative mx-auto h-[22rem] w-full max-w-3xl"
