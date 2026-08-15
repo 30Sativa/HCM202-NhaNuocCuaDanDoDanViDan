@@ -18,7 +18,7 @@ export const team: Member[] = [
   {
     id: "m2",
     name: "Thành viên 2",
-    major: "Kỹ thuật phần mềm",
+    major: "Digital Markting",
     role: "Thiết kế giao diện & trải nghiệm người dùng",
     accent: "from-gold-dark to-gold",
   },

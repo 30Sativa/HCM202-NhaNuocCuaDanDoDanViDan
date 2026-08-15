@@ -3,6 +3,7 @@ export type ModuleSection = {
   body: string[];
   list?: string[];
   quote?: string;
+  part?: string; // tên phần để nhóm các mục (hiển thị đường phân cách)
 };
 
 export type LearnModule = {
@@ -29,6 +30,7 @@ export const modules: LearnModule[] = [
       "Nhà nước của dân, do dân, vì dân trước hết phải là một Nhà nước dân chủ — nơi nhân dân là chủ thể của quyền lực.",
     sections: [
       {
+        part: "Dân chủ",
         heading: "Dân chủ nghĩa là gì?",
         body: [
           "Dân chủ có nghĩa cơ bản là nhân dân là chủ thể của quyền lực. Nhưng dân chủ không chỉ nằm trên giấy tờ — nó phải được thể hiện bằng những cơ chế cụ thể.",
@@ -48,6 +50,7 @@ export const modules: LearnModule[] = [
         ],
       },
       {
+        part: "Bản chất Nhà nước",
         heading: "Nhà nước thuộc về nhân dân",
         body: [
           "Nhà nước Việt Nam ra đời là kết quả của cuộc đấu tranh lâu dài, gian khổ của nhiều thế hệ người Việt Nam. Vì vậy, Nhà nước không phải của riêng một giai cấp hay tầng lớp nào mà thuộc về nhân dân — bảo vệ lợi ích của nhân dân và lấy lợi ích của nhân dân làm cơ bản.",
@@ -79,6 +82,7 @@ export const modules: LearnModule[] = [
       "Ba khái niệm của dân – do dân – vì dân tạo thành một logic thống nhất về nguồn gốc, chủ thể và mục tiêu của quyền lực nhà nước.",
     sections: [
       {
+        part: "Ba thành tố",
         heading: "Của dân — Ai là chủ?",
         body: [
           "Mọi quyền lực nhà nước thuộc về nhân dân. Nhân dân là chủ thể tối cao, thực hiện quyền làm chủ qua dân chủ trực tiếp và đại diện, bầu ra đại diện, kiểm tra giám sát, phê bình và bãi miễn theo quy định.",
@@ -108,6 +112,7 @@ export const modules: LearnModule[] = [
           "Phải làm cho dân có ăn, phải làm cho dân có mặc, phải làm cho dân có chỗ ở, và phải làm cho dân được học hành.",
       },
       {
+        part: "Khác nhau & liên hệ",
         heading: "Ba thành tố khác nhau ở đâu?",
         body: [
           "Cả ba đều hướng tới nhân dân, nhưng mỗi thành tố nhấn mạnh một phương diện khác nhau — trả lời một câu hỏi khác nhau:",
@@ -128,6 +133,7 @@ export const modules: LearnModule[] = [
           "Nhân dân là chủ → Nhân dân làm chủ → Quyền lực được sử dụng vì nhân dân.",
       },
       {
+        part: "Quan hệ từng cặp",
         heading: "Quan hệ giữa “Của dân” và “Do dân”",
         body: [
           "“Của dân” khẳng định: dân là chủ. “Do dân” khẳng định: dân làm chủ. Hai nội dung này không thể tách rời.",
@@ -171,6 +177,7 @@ export const modules: LearnModule[] = [
       "Nhà nước hợp hiến, hợp pháp, quản lý xã hội bằng pháp luật — và chính Nhà nước cũng phải tuân thủ pháp luật.",
     sections: [
       {
+        part: "Nhà nước pháp quyền",
         heading: "Hợp hiến, hợp pháp",
         body: [
           "Nhà nước Việt Nam Dân chủ Cộng hòa ra đời 02/09/1945. Ngày 06/01/1946 Tổng tuyển cử bầu Quốc hội; ngày 02/03/1946 Quốc hội khóa I họp phiên đầu tiên. Đây là nỗ lực xây dựng Nhà nước có cơ sở pháp lý và chính danh.",
@@ -197,6 +204,7 @@ export const modules: LearnModule[] = [
         ],
       },
       {
+        part: "Pháp quyền nhân nghĩa",
         heading: "Pháp quyền nhân nghĩa",
         body: [
           "Nét đặc sắc trong tư tưởng Hồ Chí Minh: kết hợp pháp luật với tính nhân văn. Pháp luật phải nghiêm minh nhưng không vô nhân đạo, phải hướng con người đến điều tốt.",
@@ -226,6 +234,7 @@ export const modules: LearnModule[] = [
       "Có quyền lực thì phải có kiểm soát quyền lực. Nhân dân là chủ thể tối cao nên phải có quyền kiểm soát Nhà nước.",
     sections: [
       {
+        part: "Kiểm soát quyền lực",
         heading: "Vì sao phải kiểm soát quyền lực?",
         body: [
           "Kiểm soát quyền lực là tất yếu nhằm giữ vững bản chất Nhà nước, bảo đảm hiệu quả hoạt động và phòng ngừa sự tha hóa quyền lực.",
@@ -246,6 +255,7 @@ export const modules: LearnModule[] = [
         ],
       },
       {
+        part: "Xây dựng cán bộ",
         heading: "Xây dựng đội ngũ cán bộ",
         body: [
           "Muốn xây dựng Nhà nước tốt phải xây dựng đội ngũ cán bộ tốt: có phẩm chất đạo đức, năng lực chuyên môn, trách nhiệm, gắn bó với nhân dân, tôn trọng pháp luật và có tinh thần phục vụ nhân dân.",
@@ -269,6 +279,7 @@ export const modules: LearnModule[] = [
       "Vận dụng tư tưởng Hồ Chí Minh vào xây dựng Nhà nước trong sạch, vững mạnh, pháp quyền và phục vụ nhân dân.",
     sections: [
       {
+        part: "Vận dụng hiện nay",
         heading: "Năm phương hướng lớn",
         body: ["Từ các slide, có thể hệ thống thành những phương hướng lớn sau:"],
         list: [
@@ -288,6 +299,7 @@ export const modules: LearnModule[] = [
           "Đảng lãnh đạo → Nhà nước thể chế hóa → Nhân dân tham gia & kiểm soát → Phục vụ lợi ích nhân dân.",
       },
       {
+        part: "Liên hệ thực tiễn",
         heading: "Liên hệ thực tiễn",
         body: [
           "Tư tưởng “của dân – do dân – vì dân” không chỉ là lý thuyết mà gắn với trách nhiệm của từng chủ thể:",

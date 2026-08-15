@@ -25,6 +25,18 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
   const prev = modules[idx - 1];
   const next = modules[idx + 1];
 
+  // Gom các mục thành phần: mục nào khai báo `part` mới thì mở một phần mới.
+  let curPart = "";
+  let partNo = 0;
+  const blocks = m.sections.map((s, i) => {
+    const startsPart = !!s.part && s.part !== curPart;
+    if (startsPart) {
+      curPart = s.part!;
+      partNo += 1;
+    }
+    return { s, i, divider: startsPart ? { no: partNo, name: s.part! } : null };
+  });
+
   return (
     <article>
       <AiTopic title={m.title} />
@@ -57,8 +69,20 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
       {/* body */}
       <div className="mx-auto max-w-3xl px-5 py-16 md:px-8">
         <div className="space-y-12">
-          {m.sections.map((s, i) => (
-            <Reveal key={i}>
+          {blocks.map(({ s, i, divider }) => (
+            <div key={i} className={divider ? "space-y-8" : ""}>
+              {divider && (
+                <Reveal>
+                  <div className="flex items-center gap-4 pt-2">
+                    <span className="h-px flex-1 bg-ink/15" />
+                    <span className="whitespace-nowrap font-mono text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                      Phần {divider.no} · {divider.name}
+                    </span>
+                    <span className="h-px flex-1 bg-ink/15" />
+                  </div>
+                </Reveal>
+              )}
+              <Reveal>
               <section>
                 <h2 className="font-serif text-2xl font-bold text-ink md:text-3xl">
                   <span className="mr-3 font-mono text-base text-gold-dark">
@@ -92,7 +116,8 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
                   </blockquote>
                 )}
               </section>
-            </Reveal>
+              </Reveal>
+            </div>
           ))}
         </div>
 
